@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ambush">Ambush</string>
+    <string name="defense">Ambush</string>
+    <string name="charge">Ambush</string>
+    <string name="magic">Ambush</string>
+    <string name="bomber">Ambush</string>
+    <string name="ranged">Ambush</string>
+    <string name="support">Ambush</string>
+    <string name="healing">Ambush</string>
+
+    <string name="pure_vanilla">Pure Vanilla</string>
+    
+</resources>

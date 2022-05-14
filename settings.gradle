@@ -1,0 +1,26 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "CRCGachaSim"
+include ':app'
+include ':core'
+include ':gacha'
+include ':gacha:gacha_presentation'
+include ':gacha:gacha_domain'
+include ':gacha:gacha_data'
+include ':inventory'
+include ':inventory:inventory_presentation'
+include ':inventory:inventory_domain'
+include ':inventory:inventory_data'
+include ':core-ui'
