@@ -1,36 +1,28 @@
-package com.example.core.util
-
+package com.example.gacha_domain.models
 import com.example.core.data.local.entity.CookieEntity
-import com.example.gacha_domain.models.Cookie
 
 
-fun Cookie.toCookieEntity(): CookieEntity {
+fun GachaCookie.toCookieEntity(soulStoneCount: Int, cookieImage: Int, type: String): CookieEntity {
     return CookieEntity(
         id = id,
         name = name,
         soulStoneCount = soulStoneCount,
         soulStoneImage = soulStoneImage,
-        cookieImage = cookieImage,
         cookieImageAnimated = cookieImageAnimated,
         cookieGachaImage = cookieGachaImage,
-        type = type,
-        rarity = rarity
+        rarity = rarity.name,
+        cookieImage = cookieImage,
+        type = type
     )
 }
 
-fun CookieEntity.toCookie(): Cookie {
-    return Cookie(
-        id = id,
+fun CookieEntity.toCookie(): GachaCookie {
+    return GachaCookie(
+        id =  id ?: 0,
         name = name,
-        soulStoneCount = soulStoneCount,
         soulStoneImage = soulStoneImage,
-        cookieImage = cookieImage,
         cookieImageAnimated = cookieImageAnimated,
         cookieGachaImage = cookieGachaImage,
-        type = type,
-        rarity = rarity,
-        story = "",
-        position = "",
-        skill = ""
+        rarity = Rarity.fromString(rarity),
     )
 }
