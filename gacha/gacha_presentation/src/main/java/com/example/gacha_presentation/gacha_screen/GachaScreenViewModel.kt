@@ -20,7 +20,6 @@ class GachaScreenViewModel @Inject constructor(
     private val gachaUseCases: GachaUseCases
 ): ViewModel() {
 
-    private val cookieList = mutableListOf<GachaCookie>()
     var state by mutableStateOf(GachaScreenState())
         private set
 
@@ -30,7 +29,6 @@ class GachaScreenViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             gachaUseCases.determineShouldPopulateDb()
-            cookieList += gachaUseCases.getCookieList()
         }
     }
 
@@ -56,7 +54,11 @@ class GachaScreenViewModel @Inject constructor(
     }
 
     private fun performCookieGacha() = viewModelScope.launch {
-
+        val newCookieDraw = gachaUseCases.performCookieGacha()
+        val updatedList = state.pulledCookies + listOf(newCookieDraw)
+        state = state.copy(
+            pulledCookies = updatedList
+        )
     }
 
 }

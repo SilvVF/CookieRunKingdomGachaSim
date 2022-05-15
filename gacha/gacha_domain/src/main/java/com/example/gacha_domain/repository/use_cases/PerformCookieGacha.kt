@@ -3,6 +3,9 @@ package com.example.gacha_domain.repository.use_cases
 import com.example.gacha_domain.models.GachaCookie
 import com.example.gacha_domain.models.Rarity
 import com.example.gacha_domain.repository.GachaRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.withContext
 
 
 class PerformCookieGacha(
@@ -50,27 +53,41 @@ class PerformCookieGacha(
         when ((0..1000).random()) {
             in (0..301) ->  {
                 when (ancientOrLegendary) {
-                    is Rarity.Ancient -> updateCookieSoulStone(legendaryList.random())
+                    is Rarity.Ancient -> updateCookieSoulStone(ancientList.random())
                     else -> updateCookieSoulStone(legendaryList.random())
                 }
             }
-            else -> {}
+            else -> {
+                when (ancientOrLegendary) {
+                    is Rarity.Ancient -> updateFullCookie(ancientList.random())
+                    else -> updateFullCookie(legendaryList.random())
+                }
+            }
         }
     }
 
-    private fun drawFromEpic() {
-        TODO("Not yet implemented")
+    private suspend fun drawFromEpic() {
+        when((0..482).random()) {
+            in (0..72) -> updateFullCookie(epicList.random())
+            else -> updateCookieSoulStone(epicList.random())
+        }
     }
 
-    private fun drawFromRare() {
-        TODO("Not yet implemented")
+    private suspend fun drawFromRare() {
+        when ((0..2682).random()){
+            in (0..375) -> updateFullCookie(rareList.random())
+            else -> updateCookieSoulStone(rareList.random())
+        }
     }
 
-    private fun drawFromCommon() {
-        TODO("Not yet implemented")
+    private suspend fun drawFromCommon() {
+        when ((0..5981).random()) {
+            in (0..1367) -> updateFullCookie(commonList.random())
+            else -> updateCookieSoulStone(commonList.random())
+        }
     }
 
-    private suspend fun updateCookieSoulStone(cookie: GachaCookie){
+    private suspend fun updateCookieSoulStone(cookie: GachaCookie) = withContext(Dispatchers.IO) {
         val randomSoulStoneAmount = (3..5).random()
         repository.updateCookie(
             cookie.name,
@@ -83,10 +100,16 @@ class PerformCookieGacha(
             )
         )
     }
-    private suspend fun updateFullCookie(name: String){
+    private suspend fun updateFullCookie(cookie: GachaCookie) = withContext (Dispatchers.IO){
         repository.updateCookie(
-            name,
-           20
+            cookie.name,
+            20
+        )
+        resultList.add(
+            cookie.copy(
+                isFullCookie = true,
+                soulStoneCount = 20
+            )
         )
     }
 }
