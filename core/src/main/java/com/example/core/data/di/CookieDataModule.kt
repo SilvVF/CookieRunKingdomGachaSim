@@ -23,7 +23,7 @@ object CookieDataModule {
             app,
             CookieDatabase::class.java,
             "cookie.db"
-        ).enableMultiInstanceInvalidation()
+        ).fallbackToDestructiveMigration()
             .build()
     }
 

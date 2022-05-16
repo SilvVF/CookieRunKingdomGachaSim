@@ -4,7 +4,6 @@ import com.example.core.data.local.entity.CookieEntity
 
 fun GachaCookie.toCookieEntity(soulStoneCount: Int, cookieImage: Int, type: String): CookieEntity {
     return CookieEntity(
-        id = id,
         name = name,
         soulStoneCount = soulStoneCount,
         soulStoneImage = soulStoneImage,
@@ -18,7 +17,6 @@ fun GachaCookie.toCookieEntity(soulStoneCount: Int, cookieImage: Int, type: Stri
 
 fun CookieEntity.toCookie(): GachaCookie {
     return GachaCookie(
-        id =  id ?: 0,
         name = name,
         soulStoneImage = soulStoneImage,
         cookieImageAnimated = cookieImageAnimated,

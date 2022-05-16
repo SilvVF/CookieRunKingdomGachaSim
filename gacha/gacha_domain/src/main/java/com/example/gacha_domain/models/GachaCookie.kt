@@ -2,7 +2,6 @@ package com.example.gacha_domain.models
 
 
 data class GachaCookie(
-    val id: Int,
     val name: String,
     val soulStoneImage: Int,
     val cookieImageAnimated: Int,

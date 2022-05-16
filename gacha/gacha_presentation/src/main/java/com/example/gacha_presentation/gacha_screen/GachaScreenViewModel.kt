@@ -1,5 +1,7 @@
 package com.example.gacha_presentation.gacha_screen
 
+import android.graphics.DiscretePathEffect
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -10,6 +12,7 @@ import com.example.gacha_domain.models.GachaCookie
 import com.example.gacha_domain.repository.use_cases.DetermineShouldPopulateDb
 import com.example.gacha_domain.repository.use_cases.GachaUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -27,7 +30,8 @@ class GachaScreenViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
+            Log.i("COOKIEGACHA", "hersherahjrahjklffdlllllslllllllllslllllllllllllllslslslslsss")
             gachaUseCases.determineShouldPopulateDb()
         }
     }

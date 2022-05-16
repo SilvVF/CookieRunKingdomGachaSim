@@ -1,5 +1,6 @@
 package com.example.gacha_domain.repository.use_cases
 
+import android.util.Log
 import com.example.gacha_domain.models.GachaCookie
 import com.example.gacha_domain.models.Rarity
 import com.example.gacha_domain.repository.GachaRepository
@@ -26,8 +27,7 @@ class PerformCookieGacha(
     //legendary & ancient 1.810%
 
     suspend operator fun invoke(): List<GachaCookie> {
-
-       repository.getAllCookies().forEach { cookie ->
+       repository.getDefaultList().forEach { cookie ->
            when (cookie.rarity) {
                is Rarity.Ancient -> ancientList.add(cookie)
                is Rarity.Legendary -> legendaryList.add(cookie)
@@ -73,7 +73,7 @@ class PerformCookieGacha(
         }
     }
 
-    private suspend fun drawFromRare() {
+    private suspend fun drawFromRare(){
         when ((0..2682).random()){
             in (0..375) -> updateFullCookie(rareList.random())
             else -> updateCookieSoulStone(rareList.random())
@@ -87,7 +87,7 @@ class PerformCookieGacha(
         }
     }
 
-    private suspend fun updateCookieSoulStone(cookie: GachaCookie) = withContext(Dispatchers.IO) {
+    private suspend fun updateCookieSoulStone(cookie: GachaCookie) {
         val randomSoulStoneAmount = (3..5).random()
         repository.updateCookie(
             cookie.name,
@@ -100,7 +100,7 @@ class PerformCookieGacha(
             )
         )
     }
-    private suspend fun updateFullCookie(cookie: GachaCookie) = withContext (Dispatchers.IO){
+    private suspend fun updateFullCookie(cookie: GachaCookie){
         repository.updateCookie(
             cookie.name,
             20

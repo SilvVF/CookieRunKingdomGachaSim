@@ -1,5 +1,6 @@
 package com.example.gacha_domain.repository.use_cases
 
+import android.util.Log
 import com.example.core.data.preferences.Preferences
 import com.example.gacha_domain.repository.GachaRepository
 
@@ -10,6 +11,7 @@ class DetermineShouldPopulateDb(
 ) {
 
     suspend operator fun invoke() {
+        Log.i("COOKIEGACHA", "hersherahjrahjklffdlllllslllllllllslllllllllllllllslslslslsss")
         when (!preferences.shouldPopulateDb()) {
             true -> {
                 repository.prePopulateDb()

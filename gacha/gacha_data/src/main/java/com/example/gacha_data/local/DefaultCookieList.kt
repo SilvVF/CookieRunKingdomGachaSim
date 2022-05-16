@@ -2,8 +2,12 @@ package com.example.gacha_data.local
 
 import com.example.core.R
 import com.example.core.data.CookieConstants.ANCIENT
+import com.example.core.data.CookieConstants.COMMON
+import com.example.core.data.CookieConstants.EPIC
 import com.example.core.data.CookieConstants.HEALING
+import com.example.core.data.CookieConstants.RARE
 import com.example.core.data.local.entity.CookieEntity
+import com.example.gacha_domain.models.Rarity
 
 class DefaultCookieList {
 
@@ -20,18 +24,16 @@ class DefaultCookieList {
 
 
         val PURE_VANILLA = CookieEntity(
-            id = 1,
             name = "R.string.pure_vanilla",
             soulStoneImage = R.drawable.pure_vanilla_soulstone,
             cookieImage = R.drawable.pure_vanilla_character_card,
             cookieImageAnimated = R.drawable.pure_vanilla_animated,
             cookieGachaImage = R.drawable.pure_vanilla_face_icon,
             type = HEALING,
-            rarity = ANCIENT,
+            rarity = RARE,
             soulStoneCount = 0
         )
         val COOKIE1 = CookieEntity(
-            id = 2,
             name = "R.string.pure_vanilla",
             soulStoneImage = R.drawable.pure_vanilla_soulstone,
             cookieImage = R.drawable.pure_vanilla_character_card,
@@ -42,25 +44,23 @@ class DefaultCookieList {
             soulStoneCount = 0
         )
         val COOKIE2 = CookieEntity(
-            id = 3,
             name = "R.string.pure_vanilla",
             soulStoneImage = R.drawable.pure_vanilla_soulstone,
             cookieImage = R.drawable.pure_vanilla_character_card,
             cookieImageAnimated = R.drawable.pure_vanilla_animated,
             cookieGachaImage = R.drawable.pure_vanilla_face_icon,
             type = HEALING,
-            rarity = ANCIENT,
+            rarity = COMMON,
             soulStoneCount = 0
         )
         val COOKIE3 = CookieEntity(
-            id = 4,
             name = "R.string.pure_vanilla",
             soulStoneImage = R.drawable.pure_vanilla_soulstone,
             cookieImage = R.drawable.pure_vanilla_character_card,
             cookieImageAnimated = R.drawable.pure_vanilla_animated,
             cookieGachaImage = R.drawable.pure_vanilla_face_icon,
             type = HEALING,
-            rarity = ANCIENT,
+            rarity = EPIC,
             soulStoneCount = 0
         )
 
