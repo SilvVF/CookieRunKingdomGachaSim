@@ -5,8 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class CookieEntity (
-    @PrimaryKey(autoGenerate = true) val id: Int?,
-    val name: String, //res id
+    @PrimaryKey(autoGenerate = false) val name: String, //res id
     val soulStoneCount: Int = 0,
     val soulStoneImage: Int,
 

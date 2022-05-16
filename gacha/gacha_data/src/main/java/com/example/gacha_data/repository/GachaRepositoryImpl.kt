@@ -1,5 +1,6 @@
 package com.example.gacha_data.repository
 
+import android.util.Log
 import com.example.core.data.local.entity.CookieDao
 import com.example.gacha_domain.models.toCookie
 import com.example.gacha_data.local.DefaultCookieList
@@ -20,6 +21,7 @@ class GachaRepositoryImpl constructor(
         )
     }
 
+
     override suspend fun getAllCookies(): List<GachaCookie> {
         return cookieDao.getAllCookies().map {
             it.toCookie()
@@ -33,5 +35,11 @@ class GachaRepositoryImpl constructor(
             soulStoneCount = cookie.soulStoneCount + soulStoneCount
         )
         cookieDao.updateCookieInfo(updatedCookie)
+    }
+
+    override suspend fun getDefaultList(): List<GachaCookie> {
+        return defaultCookieList.getDefaultList().map {
+            it.toCookie()
+        }
     }
 }

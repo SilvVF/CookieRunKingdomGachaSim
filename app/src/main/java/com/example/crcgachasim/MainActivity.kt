@@ -15,7 +15,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.crcgachasim.navigation.Route
 import com.example.crcgachasim.ui.theme.CRCGachaSimTheme
+import com.example.gacha_presentation.gacha_screen.GachaScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,9 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(navController = navController, startDestination = Route.GACHA){
                         composable(route = Route.GACHA) {
-
+                            GachaScreen(onNavigateToInventory = {
+                                navController.navigate(Route.INVENTORY)
+                            })
                         }
                         composable(route = Route.INVENTORY) {
 
