@@ -1,6 +1,6 @@
 package com.example.gacha_domain.repository.use_cases
 
-import com.example.gacha_domain.models.Cookie
+
 import com.example.gacha_domain.repository.GachaRepository
 
 class UpdateCookieInfo(
@@ -8,8 +8,9 @@ class UpdateCookieInfo(
 ) {
 
    suspend operator fun invoke(
-       cookie: Cookie
+       cookieName: String,
+       soultStoneCount: Int,
    ) {
-       repository.updateCookie(cookie)
+       repository.updateCookie(cookieName, soultStoneCount)
    }
 }

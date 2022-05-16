@@ -19,4 +19,13 @@ interface CookieDao {
         onConflict = OnConflictStrategy.REPLACE
     )
     suspend fun updateCookieInfo(cookieEntity: CookieEntity)
+
+    @Query(
+            """
+            SELECT * FROM cookieentity
+            WHERE LOWER(name) = LOWER(:name)
+            LIMIT 1
+            """
+    )
+    suspend fun getCookieByName(name: String): CookieEntity
 }

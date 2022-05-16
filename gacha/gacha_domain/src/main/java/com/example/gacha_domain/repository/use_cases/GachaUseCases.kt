@@ -4,5 +4,6 @@ data class GachaUseCases(
 
     val determineShouldPopulateDb: DetermineShouldPopulateDb,
     val getCookieList: GetCookieList,
-    val updateCookieInfo: UpdateCookieInfo
+    val updateCookieInfo: UpdateCookieInfo,
+    val performCookieGacha: PerformCookieGacha
 )
