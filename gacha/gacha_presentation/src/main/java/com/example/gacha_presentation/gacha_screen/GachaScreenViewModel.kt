@@ -1,28 +1,28 @@
 package com.example.gacha_presentation.gacha_screen
 
-import android.graphics.DiscretePathEffect
-import android.util.Log
+
+import androidx.compose.foundation.MutatePriority
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.util.UiEvent
-import com.example.gacha_domain.models.GachaCookie
-import com.example.gacha_domain.repository.use_cases.DetermineShouldPopulateDb
 import com.example.gacha_domain.repository.use_cases.GachaUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
 class GachaScreenViewModel @Inject constructor(
     private val gachaUseCases: GachaUseCases
 ): ViewModel() {
-
     var state by mutableStateOf(GachaScreenState())
         private set
 
@@ -54,7 +54,6 @@ class GachaScreenViewModel @Inject constructor(
     }
 
     private fun performCookieGacha() = viewModelScope.launch {
-
         state = state.copy(
             pulledCookies = state.pulledCookies.apply {
                   add(gachaUseCases.performCookieGacha())
@@ -62,5 +61,11 @@ class GachaScreenViewModel @Inject constructor(
             totalCrystals = state.totalCrystals + 3000
         )
     }
+    fun animateScrollLastItem(rstate: LazyListState) {
+        viewModelScope.launch {
+            rstate.scrollToItem(0,0)
+        }
+    }
+
 
 }

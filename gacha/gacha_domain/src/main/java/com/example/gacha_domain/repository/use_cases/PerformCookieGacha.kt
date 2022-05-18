@@ -50,7 +50,7 @@ class PerformCookieGacha(
            }
        }
         val rand = Random.nextInt(0,100000)
-        repeat(1) {
+        repeat(10) {
             withContext(Dispatchers.IO) {
                 when (rand) {
                     in (0..41615) -> drawFromCommon()

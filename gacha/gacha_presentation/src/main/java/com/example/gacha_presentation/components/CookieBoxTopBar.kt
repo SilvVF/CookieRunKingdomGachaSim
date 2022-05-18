@@ -8,6 +8,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -29,21 +31,30 @@ fun CookieBoxTopBar(
             .fillMaxWidth()
             .height(20.dp)
             .clip(RoundedCornerShape(5.dp))
-            .background(MaterialTheme.colors.surface),
-        horizontalArrangement = Arrangement.SpaceBetween
+            .background(Color.Yellow),
+        horizontalArrangement = Arrangement.SpaceAround
     ) {
-        Box() {
+        Box(
+            modifier = Modifier
+                .clip(RoundedCornerShape(5.dp))
+                .background(MaterialTheme.colors.surface)) {
             Text(
                 text = date.format(DateTimeFormatter.ISO_DATE).toString(),
-                style = MaterialTheme.typography.h1,
-                fontSize = 12.sp
+                style = MaterialTheme.typography.h2,
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold
             )
         }
-        Box() {
+        Box(
+            modifier = Modifier
+                .clip(RoundedCornerShape(5.dp))
+                .background(MaterialTheme.colors.surface)
+        ) {
             Text(
-                text = time.format(DateTimeFormatter.ISO_LOCAL_TIME).toString(),
-                style = MaterialTheme.typography.h1,
-                fontSize = 12.sp
+                text = time.format(DateTimeFormatter.ISO_TIME).toString(),
+                style = MaterialTheme.typography.h2,
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold
             )
         }
     }
