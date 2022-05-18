@@ -6,4 +6,5 @@ sealed class GachaScreenEvent {
     object OnCookieListButtonClick: GachaScreenEvent()
     object OnToggleTreasureClick: GachaScreenEvent()
     object OnToggleCookieClick: GachaScreenEvent()
+    object OnClearInventoryClick: GachaScreenEvent()
 }

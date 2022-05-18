@@ -22,4 +22,7 @@ interface CookieDao {
 
     @Query("SELECT * FROM cookieentity WHERE name = :name LIMIT 1")
     suspend fun getCookieByName(name: String): CookieEntity
+
+//    @Delete
+//    suspend fun clearAllCookies()
 }

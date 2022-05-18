@@ -30,8 +30,7 @@ class GachaScreenViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
-        viewModelScope.launch(Dispatchers.IO) {
-            Log.i("COOKIEGACHA", "hersherahjrahjklffdlllllslllllllllslllllllllllllllslslslslsss")
+        viewModelScope.launch {
             gachaUseCases.determineShouldPopulateDb()
         }
     }
@@ -43,10 +42,6 @@ class GachaScreenViewModel @Inject constructor(
             }
             is GachaScreenEvent.OnDrawTenButtonClick -> {
                 performCookieGacha()
-                state = state.copy(
-                    totalCrystals = state.totalCrystals + 3000
-                )
-
             }
             is GachaScreenEvent.OnToggleCookieClick -> {
 
@@ -54,14 +49,17 @@ class GachaScreenViewModel @Inject constructor(
             is GachaScreenEvent.OnToggleTreasureClick -> {
 
             }
+            else -> {}
         }
     }
 
     private fun performCookieGacha() = viewModelScope.launch {
-        val newCookieDraw = gachaUseCases.performCookieGacha()
-        val updatedList = state.pulledCookies + listOf(newCookieDraw)
+
         state = state.copy(
-            pulledCookies = updatedList
+            pulledCookies = state.pulledCookies.apply {
+                  add(gachaUseCases.performCookieGacha())
+            },
+            totalCrystals = state.totalCrystals + 3000
         )
     }
 
