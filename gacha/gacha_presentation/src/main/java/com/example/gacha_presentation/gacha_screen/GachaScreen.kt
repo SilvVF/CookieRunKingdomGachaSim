@@ -9,7 +9,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.Snackbar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,7 +22,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.core.util.UiEvent
 import com.example.core_ui.LocalSpacing
 import com.example.gacha_presentation.R
 import com.example.gacha_presentation.components.CookieBoxTopBar
@@ -27,6 +32,7 @@ import com.example.gacha_presentation.components.DualColorButton
 import com.example.gacha_presentation.components.GachaHistoryText
 import com.example.gacha_presentation.components.PulledCookieBox
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -36,13 +42,22 @@ fun GachaScreen(
     onNavigateToInventory:() -> Unit,
     viewModel: GachaScreenViewModel = hiltViewModel()
 ) {
-    val context = LocalContext.current
     val state  = viewModel.state
     val spacing = LocalSpacing.current
     val listState = rememberLazyListState()
     // Remember a CoroutineScope to be able to launch
     val coroutineScope = rememberCoroutineScope()
 
+    LaunchedEffect(key1 = true ){
+        viewModel.uiEvent.collect {
+            when (it) {
+                is UiEvent.ShowAlertDialog -> {
+
+                }
+                else ->{}
+            }
+        }
+    }
     Box(
         Modifier.fillMaxSize()
     ) {
@@ -90,11 +105,13 @@ fun GachaScreen(
                             PulledCookieBox(
                                 cookiesPulled = it,
                                 onCookieClick = {
-                                    it
+
                                 },
                                 time = LocalDateTime.now(),
                                 date = LocalDate.now(),
-                                modifier = Modifier.height(175.dp).padding(end = spacing.spaceLarge)
+                                modifier = Modifier
+                                    .height(175.dp)
+                                    .padding(end = spacing.spaceLarge)
                             )
                         }
                     }

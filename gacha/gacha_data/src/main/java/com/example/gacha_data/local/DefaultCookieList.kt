@@ -1,20 +1,19 @@
 package com.example.gacha_data.local
 
 import com.example.core.R
-import com.example.core.data.CookieConstants.AMBUSH
-import com.example.core.data.CookieConstants.ANCIENT
-import com.example.core.data.CookieConstants.CHARGE
-import com.example.core.data.CookieConstants.COMMON
-import com.example.core.data.CookieConstants.DEFENSE
-import com.example.core.data.CookieConstants.EPIC
-import com.example.core.data.CookieConstants.HEALING
-import com.example.core.data.CookieConstants.LEGENDARY
-import com.example.core.data.CookieConstants.MAGIC
-import com.example.core.data.CookieConstants.RANGED
-import com.example.core.data.CookieConstants.RARE
-import com.example.core.data.CookieConstants.SUPPORT
+import com.example.core.util.CookieConstants.AMBUSH
+import com.example.core.util.CookieConstants.ANCIENT
+import com.example.core.util.CookieConstants.CHARGE
+import com.example.core.util.CookieConstants.COMMON
+import com.example.core.util.CookieConstants.DEFENSE
+import com.example.core.util.CookieConstants.EPIC
+import com.example.core.util.CookieConstants.HEALING
+import com.example.core.util.CookieConstants.LEGENDARY
+import com.example.core.util.CookieConstants.MAGIC
+import com.example.core.util.CookieConstants.RANGED
+import com.example.core.util.CookieConstants.RARE
+import com.example.core.util.CookieConstants.SUPPORT
 import com.example.core.data.local.entity.CookieEntity
-import com.example.gacha_domain.models.Rarity
 
 object DefaultCookieList {
     val list = listOf(

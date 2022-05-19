@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.core_ui.LocalSpacing
 import com.example.gacha_domain.models.GachaCookie
+import com.example.gacha_domain.models.Rarity
 import java.time.LocalDate
 import java.time.LocalDateTime
 
@@ -62,7 +63,7 @@ fun PulledCookieBox(
                     val cookie = cookiesPulled[i]
                     if (cookie.isFullCookie) {
                         CookieItemBox(
-                            imageId = cookie.cookieGachaImage
+                            imageId = cookie.cookieGachaImage,
                         )
                     } else {
                         SoulstoneItemBox(
@@ -81,7 +82,7 @@ fun PulledCookieBox(
                     val cookie = cookiesPulled[i]
                     if (cookie.isFullCookie) {
                         CookieItemBox(
-                            imageId = cookie.cookieGachaImage
+                            imageId = cookie.cookieGachaImage,
                         )
                     } else {
                         SoulstoneItemBox(

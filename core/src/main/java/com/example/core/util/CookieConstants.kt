@@ -1,4 +1,4 @@
-package com.example.core.data
+package com.example.core.util
 
 object CookieConstants {
     //types

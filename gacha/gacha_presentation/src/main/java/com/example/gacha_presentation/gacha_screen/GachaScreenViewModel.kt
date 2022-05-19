@@ -4,6 +4,7 @@ package com.example.gacha_presentation.gacha_screen
 import androidx.compose.foundation.MutatePriority
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.material.AlertDialog
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -39,7 +40,9 @@ class GachaScreenViewModel @Inject constructor(
 
             }
             is GachaScreenEvent.OnDrawTenButtonClick -> {
-               cookieGacha()
+               viewModelScope.launch {
+                   cookieGacha()
+               }
             }
             is GachaScreenEvent.OnToggleCookieClick -> {
 
@@ -51,8 +54,7 @@ class GachaScreenViewModel @Inject constructor(
         }
     }
 
-    private fun cookieGacha() = viewModelScope.launch {
-        runBlocking {
+    private fun cookieGacha() = runBlocking {
             state = state.copy(
                 pulledCookies = state.pulledCookies.apply {
                     add(gachaUseCases.performCookieGacha())
@@ -63,5 +65,3 @@ class GachaScreenViewModel @Inject constructor(
     }
 
 
-
-}
