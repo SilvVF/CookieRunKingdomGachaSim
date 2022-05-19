@@ -4,4 +4,5 @@
     <string name="result_draw_10">Draw Result</string>
     <string name="inventory">Inventory</string>
     <string name="draw_10">Draw 10</string>
+    <string name="reset">reset inventory</string>
 </resources>

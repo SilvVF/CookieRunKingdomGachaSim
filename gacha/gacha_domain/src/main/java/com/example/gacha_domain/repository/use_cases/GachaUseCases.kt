@@ -6,5 +6,6 @@ data class GachaUseCases(
     val getCookieList: GetCookieList,
     val updateCookieInfo: UpdateCookieInfo,
     val performCookieGacha: PerformCookieGacha,
-    val filterCookieList: FilterCookieList
+    val filterCookieList: FilterCookieList,
+    val deleteInventory: DeleteInventory
 )

@@ -25,7 +25,8 @@ object GachaDomainModule {
             GetCookieList(repository),
             UpdateCookieInfo(repository),
             PerformCookieGacha(repository),
-            FilterCookieList()
+            FilterCookieList(),
+            DeleteInventory(repository)
         )
     }
 }

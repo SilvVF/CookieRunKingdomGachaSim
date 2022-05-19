@@ -10,10 +10,9 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -46,12 +45,19 @@ fun GachaScreen(
     val listState = rememberLazyListState()
     // Remember a CoroutineScope to be able to launch
     val coroutineScope = rememberCoroutineScope()
+    var alertDialogState  by remember {
+        mutableStateOf(false)
+    }
+    val currentAlert = remember {
+        mutableStateOf(10)
+    }
 
     LaunchedEffect(key1 = true ){
         viewModel.uiEvent.collect {
             when (it) {
                 is UiEvent.ShowAlertDialog -> {
-
+                    currentAlert.value = it.id
+                    alertDialogState = true
                 }
                 else ->{}
             }
@@ -67,22 +73,49 @@ fun GachaScreen(
             contentScale = ContentScale.Crop,
         )
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = CenterHorizontally,
             verticalArrangement = Arrangement.Top,
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            Button(
-                onClick = { onNavigateToInventory() },
-                modifier = Modifier
-                    .padding(spacing.spaceMedium)
-                    .fillMaxWidth()
-            ) {
-                Text(
-                    text = stringResource(id = R.string.inventory)
-                )
+            Row() {
+                Button(
+                    onClick = { onNavigateToInventory() },
+                    modifier = Modifier
+                        .padding(spacing.spaceMedium)
+                        .weight(1f)
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.inventory)
+                    )
+                }
+                Button(
+                    onClick = { viewModel.onEvent(GachaScreenEvent.OnClearInventoryClick) },
+                    modifier = Modifier
+                        .padding(spacing.spaceMedium)
+                        .weight(1f)
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.reset)
+                    )
+                }
             }
             Spacer(modifier = Modifier.height(spacing.spaceLarge))
+            if (alertDialogState) {
+                AlertDialog(
+                    onDismissRequest = { alertDialogState = false },
+                    buttons = {
+                        Image(
+                            painter = painterResource(id = currentAlert.value),
+                            contentDescription = null
+                        )
+                    },
+                    properties = DialogProperties(
+                        dismissOnClickOutside = true
+                    ),
+                    modifier = Modifier.size(300.dp, 300.dp).align(CenterHorizontally)
+                )
+            }
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
