@@ -1,16 +1,15 @@
 package com.example.gacha_presentation.gacha_screen
 
 
-import androidx.compose.foundation.MutatePriority
-import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.material.AlertDialog
+
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.util.UiEvent
+import com.example.gacha_domain.models.GachaCookie
+import com.example.gacha_domain.models.Rarity
 import com.example.gacha_domain.repository.use_cases.GachaUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
@@ -25,8 +24,11 @@ class GachaScreenViewModel @Inject constructor(
     var state by mutableStateOf(GachaScreenState())
         private set
 
+    private var pull: Job? = null
+
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
+
 
     init {
         viewModelScope.launch {
@@ -40,9 +42,14 @@ class GachaScreenViewModel @Inject constructor(
 
             }
             is GachaScreenEvent.OnDrawTenButtonClick -> {
-               viewModelScope.launch {
-                   cookieGacha()
-               }
+                viewModelScope.launch(Dispatchers.Main) {
+                   if (pull?.isActive == true) return@launch
+                   pull = viewModelScope.launch(Dispatchers.IO) {
+                       state = state.copy(
+                           pulledCookies = refreshCookieList()
+                       )
+                   }
+                }
             }
             is GachaScreenEvent.OnToggleCookieClick -> {
 
@@ -50,18 +57,29 @@ class GachaScreenViewModel @Inject constructor(
             is GachaScreenEvent.OnToggleTreasureClick -> {
 
             }
-            else -> {}
+            is GachaScreenEvent.OnClearInventoryClick -> {
+                viewModelScope.launch(Dispatchers.IO) {
+                    gachaUseCases.deleteInventory()
+                }
+            }
         }
     }
+    private suspend fun refreshCookieList(): List<List<GachaCookie>> {
+        val res = mutableListOf(gachaUseCases.performCookieGacha().onEach { cookie  ->
+            if (
+                cookie.rarity == Rarity.Epic ||
+                cookie.rarity == Rarity.Ancient ||
+                cookie.rarity == Rarity.SuperEpic ||
+                cookie.rarity == Rarity.Legendary
+            ) {
+              _uiEvent.send(UiEvent.ShowAlertDialog(cookie.cookieImageAnimated))
+            }
+        })
+        res.addAll(state.pulledCookies)
 
-    private fun cookieGacha() = runBlocking {
-            state = state.copy(
-                pulledCookies = state.pulledCookies.apply {
-                    add(gachaUseCases.performCookieGacha())
-                },
-                totalCrystals = state.totalCrystals + 3000
-            )
-        }
+        return gachaUseCases.filterCookieList(res)
     }
+}
+
 
 

@@ -1,6 +1,7 @@
 package com.example.gacha_presentation.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -23,7 +24,9 @@ fun CookieItemBox(
     Box(
         modifier = modifier
                 .height(height.dp)
-                .width(width.dp),
+                .width(width.dp).clickable {
+
+            },
             contentAlignment = Alignment.Center
     ) {
         Image(

@@ -1,7 +1,5 @@
 package com.example.gacha_presentation.gacha_screen
 
-import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.lazy.LazyListState
 
 sealed class GachaScreenEvent {
 

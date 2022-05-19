@@ -1,12 +1,10 @@
 package com.example.gacha_data.repository
 
-import android.util.Log
 import com.example.core.data.local.entity.CookieDao
 import com.example.gacha_domain.models.toCookie
 import com.example.gacha_data.local.DefaultCookieList
 import com.example.gacha_domain.models.GachaCookie
 import com.example.gacha_domain.repository.GachaRepository
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
 
@@ -44,6 +42,9 @@ class GachaRepositoryImpl constructor(
     }
 
     override suspend fun clearAllCookies() {
-        //cookieDao.clearAllCookies()
+        cookieDao.nuke()
+        cookieDao.upsertCookieInfo(
+            defaultCookieList.list
+        )
     }
 }

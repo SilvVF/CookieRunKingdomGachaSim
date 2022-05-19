@@ -23,8 +23,7 @@ object CookieDataModule {
             app,
             CookieDatabase::class.java,
             "cookie.db"
-        ).fallbackToDestructiveMigration()
-            .build()
+        ).build()
     }
 
     @Provides

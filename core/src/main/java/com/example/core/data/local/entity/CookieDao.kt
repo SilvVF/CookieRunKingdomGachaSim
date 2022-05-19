@@ -1,6 +1,7 @@
 package com.example.core.data.local.entity
 
 import androidx.room.*
+import com.example.core.data.local.CookieDatabase
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -23,6 +24,6 @@ interface CookieDao {
     @Query("SELECT * FROM cookieentity WHERE name = :name LIMIT 1")
     suspend fun getCookieByName(name: String): CookieEntity
 
-//    @Delete
-//    suspend fun clearAllCookies()
+    @Query("DELETE FROM cookieentity")
+    fun nuke()
 }
