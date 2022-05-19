@@ -24,7 +24,8 @@ object GachaDomainModule {
             DetermineShouldPopulateDb(preferences, repository),
             GetCookieList(repository),
             UpdateCookieInfo(repository),
-            PerformCookieGacha(repository)
+            PerformCookieGacha(repository),
+            FilterCookieList()
         )
     }
 }

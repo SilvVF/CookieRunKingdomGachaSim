@@ -7,7 +7,7 @@ import java.time.LocalDateTime
 
 
 data class GachaScreenState(
-    val pulledCookies: MutableList<List<GachaCookie>> = mutableListOf(),
+    val pulledCookies: List<List<GachaCookie>> = listOf(),
     val totalCrystals: Int = 0,
     val time: LocalDateTime = LocalDateTime.now(),
     val date: LocalDate = LocalDate.now(),

@@ -9,8 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.Snackbar
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
@@ -69,13 +68,21 @@ fun GachaScreen(
         )
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Top,
             modifier = Modifier
                 .fillMaxSize()
-                .offset(
-                    y = (-100).dp
-                )
         ) {
+            Button(
+                onClick = { onNavigateToInventory() },
+                modifier = Modifier
+                    .padding(spacing.spaceMedium)
+                    .fillMaxWidth()
+            ) {
+                Text(
+                    text = stringResource(id = R.string.inventory)
+                )
+            }
+            Spacer(modifier = Modifier.height(spacing.spaceLarge))
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -93,7 +100,7 @@ fun GachaScreen(
                         .height(350.dp)
                         .fillMaxWidth()
                         .padding(16.dp),
-                    reverseLayout = true,
+                    reverseLayout = false,
                     state = listState
                 ) {
                     items(state.pulledCookies) {
@@ -117,23 +124,44 @@ fun GachaScreen(
                     }
                 }
             }
-            DualColorButton(
-                textTop = stringResource(id = R.string.draw_10),
-                textBottom = "3000",
-                colorTop = Color(0xFFBF55F1),
-                colorBottom = Color(0xFFA634EB),
-                fontSize = 20,
-                modifier = Modifier.width(200.dp),
+            Spacer(modifier =  Modifier.height(spacing.spaceExtraLarge))
+            Button(
                 onClick = {
                     viewModel.onEvent(GachaScreenEvent.OnDrawTenButtonClick)
                     coroutineScope.launch {
                         listState.animateScrollToItem(
-                            index = listState.layoutInfo.totalItemsCount,
-                            scrollOffset = 100
+                            index = 0,
+                            scrollOffset = 0
+                        )
+                        listState.animateScrollBy(
+                            value = listState.firstVisibleItemScrollOffset.toFloat(),
+                            animationSpec = spring(
+                                dampingRatio = Spring.DampingRatioMediumBouncy,
+                                stiffness = Spring.StiffnessLow,
+                                visibilityThreshold = null
+                            )
                         )
                     }
+                },
+                modifier = Modifier
+                    .size(width = 120.dp, height = 60.dp),
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = com.example.core.R.drawable.crystal_icon),
+                        contentDescription = null
+                    )
+                    Spacer(modifier = Modifier.width(spacing.spaceMedium))
+                    Text(
+                        text = stringResource(id = R.string.draw_10),
+                        style = MaterialTheme.typography.button,
+                        color = Color.White
+                    )
                 }
-            )
+            }
         }
     }
 }

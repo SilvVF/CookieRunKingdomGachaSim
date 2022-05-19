@@ -1,16 +1,15 @@
 package com.example.gacha_presentation.gacha_screen
 
 
-import androidx.compose.foundation.MutatePriority
-import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.material.AlertDialog
+
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.toMutableStateList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.util.UiEvent
+import com.example.gacha_domain.models.GachaCookie
 import com.example.gacha_domain.repository.use_cases.GachaUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
@@ -28,6 +27,7 @@ class GachaScreenViewModel @Inject constructor(
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
+
     init {
         viewModelScope.launch {
             gachaUseCases.determineShouldPopulateDb()
@@ -40,9 +40,13 @@ class GachaScreenViewModel @Inject constructor(
 
             }
             is GachaScreenEvent.OnDrawTenButtonClick -> {
-               viewModelScope.launch {
-                   cookieGacha()
-               }
+                viewModelScope.launch {
+                    viewModelScope.launch {
+                        state = state.copy(
+                            pulledCookies = refreshCookieList()
+                        )
+                    }.join()
+                }
             }
             is GachaScreenEvent.OnToggleCookieClick -> {
 
@@ -50,18 +54,17 @@ class GachaScreenViewModel @Inject constructor(
             is GachaScreenEvent.OnToggleTreasureClick -> {
 
             }
-            else -> {}
-        }
-    }
+            else -> {
 
-    private fun cookieGacha() = runBlocking {
-            state = state.copy(
-                pulledCookies = state.pulledCookies.apply {
-                    add(gachaUseCases.performCookieGacha())
-                },
-                totalCrystals = state.totalCrystals + 3000
-            )
+            }
         }
     }
+    suspend fun refreshCookieList(): List<List<GachaCookie>> {
+        val res = mutableListOf(gachaUseCases.performCookieGacha())
+        res.addAll(state.pulledCookies)
+        return gachaUseCases.filterCookieList(res)
+    }
+}
+
 
 
