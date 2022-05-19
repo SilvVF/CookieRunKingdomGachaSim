@@ -21,7 +21,7 @@ sealed class Rarity(
                "super_epic" -> SuperEpic
                "legendary" -> Legendary
                "ancient" -> Ancient
-               else ->  Common
+               else ->  Epic
             }
         }
     }

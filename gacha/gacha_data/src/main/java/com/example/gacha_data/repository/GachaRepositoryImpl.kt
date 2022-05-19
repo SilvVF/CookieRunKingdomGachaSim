@@ -17,7 +17,7 @@ class GachaRepositoryImpl constructor(
 ): GachaRepository {
     override suspend fun prePopulateDb() {
         cookieDao.upsertCookieInfo(
-            defaultCookieList.getDefaultList()
+            defaultCookieList.list
         )
     }
 
@@ -38,8 +38,12 @@ class GachaRepositoryImpl constructor(
     }
 
     override suspend fun getDefaultList(): List<GachaCookie> {
-        return defaultCookieList.getDefaultList().map {
+        return defaultCookieList.list.map {
             it.toCookie()
         }
+    }
+
+    override suspend fun clearAllCookies() {
+        //cookieDao.clearAllCookies()
     }
 }

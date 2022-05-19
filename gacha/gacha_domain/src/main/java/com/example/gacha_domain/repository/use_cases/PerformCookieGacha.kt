@@ -7,6 +7,8 @@ import com.example.gacha_domain.repository.GachaRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
+import java.lang.Math.random
+import kotlin.random.Random
 
 
 class PerformCookieGacha(
@@ -27,25 +29,38 @@ class PerformCookieGacha(
     //legendary & ancient 1.810%
 
     suspend operator fun invoke(): List<GachaCookie> {
+        resultList.clear()
+        ancientList.clear()
+        commonList.clear()
+        rareList.clear()
+        epicList.clear()
+        superEpicList.clear()
+        specialList.clear()
+        ancientList.clear()
+        legendaryList.clear()
        repository.getDefaultList().forEach { cookie ->
            when (cookie.rarity) {
                is Rarity.Ancient -> ancientList.add(cookie)
                is Rarity.Legendary -> legendaryList.add(cookie)
                is Rarity.Rare -> rareList.add(cookie)
-               is Rarity.Epic -> epicList.add(cookie)
                is Rarity.SuperEpic -> superEpicList.add(cookie)
                is Rarity.Special -> specialList.add(cookie)
                is Rarity.Common -> commonList.add(cookie)
+               else -> epicList.add(cookie)
            }
        }
-
-        when ((0..100000).random()) {
-            in (0..41615) -> drawFromCommon()
-            in (41616..78911) -> drawFromRare()
-            in (78912..98192) -> drawFromEpic()
-            else -> drawFromAncientAndLegendary()
+        val rand = Random.nextInt(0,100000)
+        repeat(10) {
+            withContext(Dispatchers.IO) {
+                when (rand) {
+                    in (0..41615) -> drawFromCommon()
+                    in (41616..78911) -> drawFromRare()
+                    in (78912..98192) -> drawFromEpic()
+                    else -> drawFromAncientAndLegendary()
+                }
+            }
         }
-        return resultList
+        return resultList.map { it }.toList()
     }
 
     private suspend fun drawFromAncientAndLegendary() {

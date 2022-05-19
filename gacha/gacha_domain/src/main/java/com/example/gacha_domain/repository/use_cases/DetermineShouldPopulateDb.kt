@@ -11,7 +11,6 @@ class DetermineShouldPopulateDb(
 ) {
 
     suspend operator fun invoke() {
-        Log.i("COOKIEGACHA", "hersherahjrahjklffdlllllslllllllllslllllllllllllllslslslslsss")
         when (!preferences.shouldPopulateDb()) {
             true -> {
                 repository.prePopulateDb()

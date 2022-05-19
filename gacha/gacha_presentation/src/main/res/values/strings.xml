@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gacha_history">Gacha Draw History</string>
+    <string name="result_draw_10">Draw 10 Result</string>
+</resources>

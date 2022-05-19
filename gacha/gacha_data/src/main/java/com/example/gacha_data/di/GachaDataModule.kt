@@ -17,7 +17,7 @@ object GachaDataModule {
     @Singleton
     @Provides
     fun provideDefaultCookieList(): DefaultCookieList {
-        return DefaultCookieList()
+        return DefaultCookieList
     }
 
     @Singleton

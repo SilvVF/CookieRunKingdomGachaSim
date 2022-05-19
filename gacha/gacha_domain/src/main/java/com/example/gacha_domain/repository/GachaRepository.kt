@@ -12,4 +12,6 @@ interface GachaRepository {
     suspend fun updateCookie(cookieName: String, soulStoneCount: Int)
 
     suspend fun getDefaultList(): List<GachaCookie>
+
+    suspend fun clearAllCookies()
 }
