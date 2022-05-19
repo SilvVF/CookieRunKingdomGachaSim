@@ -48,7 +48,9 @@ fun PulledCookieBox(
             .background(Color(0xFFF2E9E0))
     ) {
         Column(
-            modifier = Modifier.fillMaxHeight().width(350.dp),
+            modifier = Modifier
+                .fillMaxHeight()
+                .width(350.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -59,15 +61,13 @@ fun PulledCookieBox(
                 for (i in 0 until (cookiesPulled.size / 2)) {
                     val cookie = cookiesPulled[i]
                     if (cookie.isFullCookie) {
-                        Image(
-                            painter = painterResource(id = cookie.cookieGachaImage),
-                            contentDescription = null
+                        CookieItemBox(
+                            imageId = cookie.cookieGachaImage
                         )
-
                     } else {
-                        Image(
-                            painter = painterResource(id = cookie.soulStoneImage),
-                            contentDescription = null
+                        SoulstoneItemBox(
+                            imageId = cookie.soulStoneImage,
+                            count = cookie.soulStoneCount
                         )
                     }
                 }
@@ -80,20 +80,17 @@ fun PulledCookieBox(
                 for (i in (cookiesPulled.size / 2)..cookiesPulled.lastIndex ) {
                     val cookie = cookiesPulled[i]
                     if (cookie.isFullCookie) {
-                        Image(
-                            painter = painterResource(id = cookie.cookieGachaImage),
-                            contentDescription = null
+                        CookieItemBox(
+                            imageId = cookie.cookieGachaImage
                         )
-
                     } else {
-                        Image(
-                            painter = painterResource(id = cookie.soulStoneImage),
-                            contentDescription = null
+                        SoulstoneItemBox(
+                            imageId = cookie.soulStoneImage,
+                            count = cookie.soulStoneCount
                         )
                     }
                 }
             }
-
         }
 
     }

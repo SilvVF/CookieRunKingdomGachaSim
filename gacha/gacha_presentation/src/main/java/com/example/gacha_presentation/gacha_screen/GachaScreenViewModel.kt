@@ -12,11 +12,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.core.util.UiEvent
 import com.example.gacha_domain.repository.use_cases.GachaUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -41,7 +39,7 @@ class GachaScreenViewModel @Inject constructor(
 
             }
             is GachaScreenEvent.OnDrawTenButtonClick -> {
-                performCookieGacha()
+               cookieGacha()
             }
             is GachaScreenEvent.OnToggleCookieClick -> {
 
@@ -53,13 +51,15 @@ class GachaScreenViewModel @Inject constructor(
         }
     }
 
-    private fun performCookieGacha() = viewModelScope.launch {
-        state = state.copy(
-            pulledCookies = state.pulledCookies.apply {
-                  add(gachaUseCases.performCookieGacha())
-            },
-            totalCrystals = state.totalCrystals + 3000
-        )
+    private fun cookieGacha() = viewModelScope.launch {
+        runBlocking {
+            state = state.copy(
+                pulledCookies = state.pulledCookies.apply {
+                    add(gachaUseCases.performCookieGacha())
+                },
+                totalCrystals = state.totalCrystals + 3000
+            )
+        }
     }
 
 

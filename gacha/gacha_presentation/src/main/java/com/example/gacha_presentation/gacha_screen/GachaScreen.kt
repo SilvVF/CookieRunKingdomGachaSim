@@ -9,39 +9,31 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.core_ui.LightGray
 import com.example.core_ui.LocalSpacing
 import com.example.gacha_presentation.R
 import com.example.gacha_presentation.components.CookieBoxTopBar
+import com.example.gacha_presentation.components.DualColorButton
 import com.example.gacha_presentation.components.GachaHistoryText
 import com.example.gacha_presentation.components.PulledCookieBox
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.LocalDateTime
 
 @Composable
 fun GachaScreen(
-    onNavigateToInventory:(id: Int) -> Unit,
+    onNavigateToInventory:() -> Unit,
     viewModel: GachaScreenViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -85,26 +77,16 @@ fun GachaScreen(
                     modifier = Modifier
                         .height(350.dp)
                         .fillMaxWidth()
-                        .clickable {
-                            viewModel.onEvent(GachaScreenEvent.OnDrawTenButtonClick)
-                            coroutineScope.launch {
-                                listState.animateScrollBy(
-                                    value = listState.layoutInfo.viewportEndOffset.toFloat(),
-                                    animationSpec = tween(
-                                        durationMillis = 300,
-                                        easing = FastOutLinearInEasing
-                                    )
-                                )
-                            }
-                        }
                         .padding(16.dp),
                     reverseLayout = true,
                     state = listState
                 ) {
                     items(state.pulledCookies) {
                         Column {
-                            CookieBoxTopBar(modifier = Modifier
-                                .width(350.dp))
+                            CookieBoxTopBar(
+                                modifier = Modifier
+                                .width(350.dp)
+                            )
                             PulledCookieBox(
                                 cookiesPulled = it,
                                 onCookieClick = {
@@ -112,14 +94,29 @@ fun GachaScreen(
                                 },
                                 time = LocalDateTime.now(),
                                 date = LocalDate.now(),
-                                modifier = Modifier.height(175.dp)
+                                modifier = Modifier.height(175.dp).padding(end = spacing.spaceLarge)
                             )
                         }
-                        Spacer(modifier = Modifier.width(8.dp))
                     }
                 }
-
             }
+            DualColorButton(
+                textTop = stringResource(id = R.string.draw_10),
+                textBottom = "3000",
+                colorTop = Color(0xFFBF55F1),
+                colorBottom = Color(0xFFA634EB),
+                fontSize = 20,
+                modifier = Modifier.width(200.dp),
+                onClick = {
+                    viewModel.onEvent(GachaScreenEvent.OnDrawTenButtonClick)
+                    coroutineScope.launch {
+                        listState.animateScrollToItem(
+                            index = listState.layoutInfo.totalItemsCount,
+                            scrollOffset = 100
+                        )
+                    }
+                }
+            )
         }
     }
 }

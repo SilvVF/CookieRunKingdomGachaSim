@@ -23,6 +23,7 @@ import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.core_ui.LocalSpacing
 import com.example.gacha_presentation.R
 import com.example.gacha_presentation.R.*
 import java.time.LocalDate
@@ -36,60 +37,63 @@ fun CookieBoxTopBar(
     date: LocalDate = LocalDate.now(),
     time: LocalDateTime = LocalDateTime.now(),
 ) {
-    Column(
-        modifier = modifier
-            .background(Color.LightGray),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = CenterHorizontally
-    ) {
-        Row() {
-            Image(
-                painter = painterResource(
-                    id = com.example.core.R.drawable.cookie_cutter),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(height = 24.dp, width = 24.dp)
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = stringResource(
-                    id = string.result_draw_10
+    val spacing = LocalSpacing.current
+        Row(
+            verticalAlignment = CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = modifier
+                .background(Color.LightGray)
+                .clip(
+                    RoundedCornerShape(
+                        topStart = 8.dp,
+                        topEnd = 8.dp
+                    )
                 ),
-                textAlign = TextAlign.Start,
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                style = MaterialTheme.typography.h1
-            )
-        }
-        Box(
-            Modifier
-                .padding(5.dp)
-                .clip(RoundedCornerShape(10.dp))
         ) {
-            Row (
-                horizontalArrangement = Arrangement.Start,
+            Row(
                 verticalAlignment = CenterVertically,
-                modifier = Modifier
-                    .padding()
-                    .background(Color.Gray)
-            ){
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier.padding(start = spacing.spaceExtraSmall)
+            ) {
                 Image(
+                    painter = painterResource(
+                        id = com.example.core.R.drawable.cookie_cutter),
+                    contentDescription = null,
                     modifier = Modifier
-                        .padding(end = 3.dp),
-                    painter = painterResource(id = com.example.core.R.drawable.icon_clock),
-                    contentDescription = null
+                        .size(height = 24.dp, width = 24.dp)
                 )
+                Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = date.format(DateTimeFormatter.ISO_LOCAL_DATE)
-                )
-                Text(
-                    text = time.hour.toString()
+                    text = stringResource(
+                        id = string.result_draw_10
+                    ),
+                    textAlign = TextAlign.Start,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Normal,
+                    style = MaterialTheme.typography.h1
                 )
             }
+            Row (
+                verticalAlignment = CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .padding(4.dp)
+                    .clip(RoundedCornerShape(40.dp))
+                    .background(Color.DarkGray)
+                    .wrapContentWidth()
+            ) {
+               Image(painter = painterResource(
+                   id = com.example.core.R.drawable.icon_clock),
+                   contentDescription = null
+               )
+               Text(
+                   text = "${date.month.value}/${date.dayOfMonth}/${date.year.toString().removePrefix("20")} - ${time.hour} : ${time.minute} : ${time.second}",
+                   color = Color.White,
+                   modifier = Modifier.padding(4.dp)
+               )
+            }
         }
-
     }
-}
 
 
 
