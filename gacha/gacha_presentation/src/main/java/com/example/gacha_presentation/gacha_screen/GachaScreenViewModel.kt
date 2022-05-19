@@ -61,11 +61,7 @@ class GachaScreenViewModel @Inject constructor(
             totalCrystals = state.totalCrystals + 3000
         )
     }
-    fun animateScrollLastItem(rstate: LazyListState) {
-        viewModelScope.launch {
-            rstate.scrollToItem(0,0)
-        }
-    }
+
 
 
 }

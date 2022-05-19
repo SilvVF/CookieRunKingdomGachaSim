@@ -12,23 +12,18 @@ import com.example.crcgachasim.R
 val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily(
-//            Font(R.font.cookierun_black),
-//            Font(R.font.cookierun_bold),
-            Font(R.font.cookierun_regular)
+           // Font(R.font.cookierun_black),
+          Font(R.font.cookierun_black),
+           // Font(R.font.cookierun_regular)
         ),
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
-    )
-    /* Other default text styles to override
+    ),
     button = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = FontFamily(Font(R.font.cookierun_bold),),
         fontWeight = FontWeight.W500,
         fontSize = 14.sp
     ),
-    caption = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
-    )
-    */
+
+
 )

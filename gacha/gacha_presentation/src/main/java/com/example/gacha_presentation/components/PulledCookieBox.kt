@@ -32,25 +32,26 @@ fun PulledCookieBox(
     val spacing = LocalSpacing.current
     Box (
         modifier = modifier
-            .clip(RoundedCornerShape(5.dp))
+            .clip(
+                RoundedCornerShape(
+                    bottomEnd = 5.dp,
+                    bottomStart = 5.dp
+                )
+            )
             .shadow(
                 elevation = 2.dp,
-                shape = RoundedCornerShape(5.dp)
+                shape = RoundedCornerShape(
+                    bottomEnd = 5.dp,
+                    bottomStart = 5.dp
+                )
             )
             .background(Color(0xFFF2E9E0))
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(spacing.spaceMedium),
+            modifier = Modifier.fillMaxHeight().width(350.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            CookieBoxTopBar(
-                time = time,
-                date = date,
-            )
-            Spacer(modifier = Modifier.height(spacing.spaceMedium))
             Row (
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically
@@ -96,5 +97,5 @@ fun PulledCookieBox(
         }
 
     }
-    
+
 }

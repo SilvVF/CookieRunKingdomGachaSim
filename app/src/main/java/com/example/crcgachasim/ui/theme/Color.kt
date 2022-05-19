@@ -20,4 +20,4 @@ val TextWhite = Color(0xFFEEEEEE)
 
 val Yellow = Color(0xFFFFC904)
 val LightBlue = Color(0xFF40A9FF)
-val LightRed = Color(0xFFFF4D4F)
+val TansparentGray = Color(0x33808080)
