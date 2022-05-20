@@ -49,10 +49,10 @@ class PerformCookieGacha(
                else -> epicList.add(cookie)
            }
        }
-        val rand = Random.nextInt(0,100000)
+        val rand = Random
         repeat(10) {
             withContext(Dispatchers.IO) {
-                when (rand) {
+                when (rand.nextInt(0,100000)) {
                     in (0..41615) -> drawFromCommon()
                     in (41616..78911) -> drawFromRare()
                     in (78912..98192) -> drawFromEpic()

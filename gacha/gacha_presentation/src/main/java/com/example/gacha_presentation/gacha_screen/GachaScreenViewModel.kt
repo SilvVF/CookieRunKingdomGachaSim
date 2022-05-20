@@ -65,16 +65,18 @@ class GachaScreenViewModel @Inject constructor(
         }
     }
     private suspend fun refreshCookieList(): List<List<GachaCookie>> {
+        val imageIdList = mutableListOf<Int>()
         val res = mutableListOf(gachaUseCases.performCookieGacha().onEach { cookie  ->
-            if (
+            if (cookie.isFullCookie &&
                 cookie.rarity == Rarity.Epic ||
                 cookie.rarity == Rarity.Ancient ||
                 cookie.rarity == Rarity.SuperEpic ||
                 cookie.rarity == Rarity.Legendary
             ) {
-              _uiEvent.send(UiEvent.ShowAlertDialog(cookie.cookieImageAnimated))
+                imageIdList.add(cookie.cookieImageAnimated)
             }
         })
+        if (imageIdList.isNotEmpty()) _uiEvent.send(UiEvent.ShowAlertDialog(imageIdList))
         res.addAll(state.pulledCookies)
 
         return gachaUseCases.filterCookieList(res)

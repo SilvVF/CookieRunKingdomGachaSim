@@ -48,15 +48,46 @@ fun GachaScreen(
     var alertDialogState  by remember {
         mutableStateOf(false)
     }
-    val currentAlert = remember {
-        mutableStateOf(10)
+    var currAlertIndex by remember { mutableStateOf(0) }
+    var currentAlert by remember {
+        mutableStateOf(
+            listOf<Int>()
+        )
+    }
+
+    if (alertDialogState) {
+
+            AlertDialog(
+                onDismissRequest = {
+                    if (currentAlert.getOrNull(currAlertIndex  + 1) == null){
+                        alertDialogState = false
+                        currAlertIndex = 0
+                    }
+                    currAlertIndex += 1
+                },
+                buttons = {
+                    if (currentAlert.lastIndex < currAlertIndex) return@AlertDialog
+                    Image(
+                        painter = painterResource(id = currentAlert[currAlertIndex]),
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(Color.LightGray)
+                    )
+                },
+                properties = DialogProperties(
+                    dismissOnClickOutside = true
+                ),
+                modifier = Modifier.size(300.dp, 300.dp)
+            )
     }
 
     LaunchedEffect(key1 = true ){
         viewModel.uiEvent.collect {
             when (it) {
                 is UiEvent.ShowAlertDialog -> {
-                    currentAlert.value = it.id
+                    currentAlert = it.id
                     alertDialogState = true
                 }
                 else ->{}
@@ -101,21 +132,6 @@ fun GachaScreen(
                 }
             }
             Spacer(modifier = Modifier.height(spacing.spaceLarge))
-            if (alertDialogState) {
-                AlertDialog(
-                    onDismissRequest = { alertDialogState = false },
-                    buttons = {
-                        Image(
-                            painter = painterResource(id = currentAlert.value),
-                            contentDescription = null
-                        )
-                    },
-                    properties = DialogProperties(
-                        dismissOnClickOutside = true
-                    ),
-                    modifier = Modifier.size(300.dp, 300.dp).align(CenterHorizontally)
-                )
-            }
             Column(
                 modifier = Modifier
                     .fillMaxWidth()

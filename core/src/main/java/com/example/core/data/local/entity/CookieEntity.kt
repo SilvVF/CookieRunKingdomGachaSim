@@ -15,6 +15,15 @@ data class CookieEntity (
     val cookieGachaImage: Int,
 
     val type: String,
-    //val skill: String,
     val rarity: String,
+    val position: String,
+    val about: String,
+    val description: String,
+    val skill: String,
+    val skillIcon: Int,
+    val quote: String,
+
+    //skill stats
+    val cooldown: Int,
+    val skillStats: String,
     )

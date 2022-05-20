@@ -1,12 +1,30 @@
 package com.example.inventory_domain.di
 
+import com.example.inventory_domain.repository.InventoryRepository
+import com.example.inventory_domain.use_cases.GetAllCookiesFromDb
+import com.example.inventory_domain.use_cases.GetCookieById
+import com.example.inventory_domain.use_cases.GetCookieByName
+import com.example.inventory_domain.use_cases.InventoryUseCases
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
+import javax.inject.Singleton
 
 @Module
 @InstallIn(ViewModelComponent::class)
 object InventoryDomainModule {
 
-
+    @ViewModelScoped
+    @Provides
+    fun provideInventoryUseCases(
+        repository: InventoryRepository
+    ): InventoryUseCases {
+        return InventoryUseCases(
+            getAllCookiesFormDb = GetAllCookiesFromDb(repository),
+            getCookieById = GetCookieById(repository),
+            getCookieByName = GetCookieByName(repository),
+        )
+    }
 }
