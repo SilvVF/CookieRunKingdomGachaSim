@@ -146,6 +146,88 @@ object DefaultCookieList {
             type = SUPPORT,
             rarity = LEGENDARY,
             soulStoneCount = 0
-        )
+        ),
+        CookieEntity(
+            name = "Cookie 3",
+            soulStoneImage = R.drawable.wizard_cookie_soulstone,
+            cookieImage = R.drawable.wizard_cookie_character_card,
+            cookieImageAnimated = R.drawable.wizard_cookie_animated,
+            cookieGachaImage = R.drawable.wizard_cookie_face_icon,
+            type = SUPPORT,
+            rarity = LEGENDARY,
+            soulStoneCount = 0
+        ),CookieEntity(
+            name = "Cookie 3",
+            soulStoneImage = R.drawable.wizard_cookie_soulstone,
+            cookieImage = R.drawable.wizard_cookie_character_card,
+            cookieImageAnimated = R.drawable.wizard_cookie_animated,
+            cookieGachaImage = R.drawable.wizard_cookie_face_icon,
+            type = SUPPORT,
+            rarity = LEGENDARY,
+            soulStoneCount = 0
+        ),CookieEntity(
+            name = "Cookie 3",
+            soulStoneImage = R.drawable.wizard_cookie_soulstone,
+            cookieImage = R.drawable.wizard_cookie_character_card,
+            cookieImageAnimated = R.drawable.wizard_cookie_animated,
+            cookieGachaImage = R.drawable.wizard_cookie_face_icon,
+            type = SUPPORT,
+            rarity = LEGENDARY,
+            soulStoneCount = 0
+        ),CookieEntity(
+            name = "Cookie 3",
+            soulStoneImage = R.drawable.wizard_cookie_soulstone,
+            cookieImage = R.drawable.wizard_cookie_character_card,
+            cookieImageAnimated = R.drawable.wizard_cookie_animated,
+            cookieGachaImage = R.drawable.wizard_cookie_face_icon,
+            type = SUPPORT,
+            rarity = LEGENDARY,
+            soulStoneCount = 0
+        ),CookieEntity(
+            name = "Cookie 3",
+            soulStoneImage = R.drawable.wizard_cookie_soulstone,
+            cookieImage = R.drawable.wizard_cookie_character_card,
+            cookieImageAnimated = R.drawable.wizard_cookie_animated,
+            cookieGachaImage = R.drawable.wizard_cookie_face_icon,
+            type = SUPPORT,
+            rarity = LEGENDARY,
+            soulStoneCount = 0
+        ),CookieEntity(
+            name = "Cookie 3",
+            soulStoneImage = R.drawable.wizard_cookie_soulstone,
+            cookieImage = R.drawable.wizard_cookie_character_card,
+            cookieImageAnimated = R.drawable.wizard_cookie_animated,
+            cookieGachaImage = R.drawable.wizard_cookie_face_icon,
+            type = SUPPORT,
+            rarity = LEGENDARY,
+            soulStoneCount = 0
+        ),CookieEntity(
+            name = "Cookie 3",
+            soulStoneImage = R.drawable.wizard_cookie_soulstone,
+            cookieImage = R.drawable.wizard_cookie_character_card,
+            cookieImageAnimated = R.drawable.wizard_cookie_animated,
+            cookieGachaImage = R.drawable.wizard_cookie_face_icon,
+            type = SUPPORT,
+            rarity = LEGENDARY,
+            soulStoneCount = 0
+        ),CookieEntity(
+            name = "Cookie 3",
+            soulStoneImage = R.drawable.wizard_cookie_soulstone,
+            cookieImage = R.drawable.wizard_cookie_character_card,
+            cookieImageAnimated = R.drawable.wizard_cookie_animated,
+            cookieGachaImage = R.drawable.wizard_cookie_face_icon,
+            type = SUPPORT,
+            rarity = LEGENDARY,
+            soulStoneCount = 0
+        ),CookieEntity(
+            name = "Cookie 3",
+            soulStoneImage = R.drawable.wizard_cookie_soulstone,
+            cookieImage = R.drawable.wizard_cookie_character_card,
+            cookieImageAnimated = R.drawable.wizard_cookie_animated,
+            cookieGachaImage = R.drawable.wizard_cookie_face_icon,
+            type = SUPPORT,
+            rarity = LEGENDARY,
+            soulStoneCount = 0
+        ),
     )
 }

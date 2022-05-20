@@ -17,4 +17,12 @@ class InventoryRepositoryImpl(
             it.toInventoryCookie()
         }.toList()
     }
+
+    override suspend fun getCookieByName(name: String): InventoryCookie {
+        return cookieDao.getCookieByName(name).toInventoryCookie()
+    }
+
+    override suspend fun getCookieById(id: Int): InventoryCookie {
+        return cookieDao.getCookieById(id).toInventoryCookie()
+    }
 }
