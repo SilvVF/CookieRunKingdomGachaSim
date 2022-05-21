@@ -19,16 +19,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.core.util.UiEvent
 import com.example.core_ui.LocalSpacing
 import com.example.gacha_presentation.R
-import com.example.gacha_presentation.components.CookieBoxTopBar
-import com.example.gacha_presentation.components.DualColorButton
-import com.example.gacha_presentation.components.GachaHistoryText
-import com.example.gacha_presentation.components.PulledCookieBox
+import com.example.gacha_presentation.components.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -174,40 +173,28 @@ fun GachaScreen(
                 }
             }
             Spacer(modifier =  Modifier.height(spacing.spaceExtraLarge))
-            Button(
-                onClick = {
-                    viewModel.onEvent(GachaScreenEvent.OnDrawTenButtonClick)
-                    coroutineScope.launch {
-                        listState.animateScrollToItem(
-                            index = 0,
-                            scrollOffset = 0
-                        )
-                        listState.animateScrollBy(
-                            value = listState.firstVisibleItemScrollOffset.toFloat(),
-                            animationSpec = spring(
-                                dampingRatio = Spring.DampingRatioMediumBouncy,
-                                stiffness = Spring.StiffnessLow,
-                                visibilityThreshold = null
-                            )
-                        )
-                    }
-                },
+            Text(
+                text = "Total Crystals Spent \n" +
+                        "${state.totalCrystals}",
+                fontSize = 30.sp,
+                fontWeight = FontWeight.ExtraBold,
+            )
+            GachaDrawButton(
                 modifier = Modifier
-                    .size(width = 120.dp, height = 60.dp),
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Image(
-                        painter = painterResource(id = com.example.core.R.drawable.crystal_icon),
-                        contentDescription = null
+                viewModel.onEvent(GachaScreenEvent.OnDrawTenButtonClick)
+                coroutineScope.launch {
+                    listState.animateScrollToItem(
+                        index = 0,
+                        scrollOffset = 0
                     )
-                    Spacer(modifier = Modifier.width(spacing.spaceMedium))
-                    Text(
-                        text = stringResource(id = R.string.draw_10),
-                        style = MaterialTheme.typography.button,
-                        color = Color.White
+                    listState.animateScrollBy(
+                        value = listState.firstVisibleItemScrollOffset.toFloat(),
+                        animationSpec = spring(
+                            dampingRatio = Spring.DampingRatioMediumBouncy,
+                            stiffness = Spring.StiffnessLow,
+                            visibilityThreshold = null
+                        )
                     )
                 }
             }

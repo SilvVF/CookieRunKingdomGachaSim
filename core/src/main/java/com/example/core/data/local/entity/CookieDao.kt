@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CookieDao {
 
-    @Query("SElECT * FROM cookieentity")
-    fun getAllCookies(): Flow<CookieEntity>
+    @Query("SELECT * FROM cookieentity")
+    suspend fun getAllCookies(): List<CookieEntity>
 
     @Insert(
         onConflict = OnConflictStrategy.REPLACE

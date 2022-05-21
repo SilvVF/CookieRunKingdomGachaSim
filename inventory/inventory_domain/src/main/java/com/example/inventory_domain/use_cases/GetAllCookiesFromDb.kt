@@ -7,7 +7,7 @@ class GetAllCookiesFromDb(
     private val repository: InventoryRepository
 ) {
 
-     suspend fun invoke(): List<InventoryCookie> {
+     suspend operator fun invoke(): List<InventoryCookie> {
          return repository.getListOfCookies()
      }
 }
