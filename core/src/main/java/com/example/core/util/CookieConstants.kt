@@ -21,4 +21,7 @@ object CookieConstants {
     const val ANCIENT = "ancient"
 
     //positions
+    const val MIDDLE = "middle"
+    const val FRONT = "front"
+    const val REAR = "rear"
 }

@@ -16,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.crcgachasim.navigation.Route
 import com.example.crcgachasim.ui.theme.CRCGachaSimTheme
 import com.example.gacha_presentation.gacha_screen.GachaScreen
+import com.example.inventory_presentation.inventory_screen.InventoryScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
                             })
                         }
                         composable(route = Route.INVENTORY) {
-
+                            InventoryScreen()
                         }
                         composable(route = Route.COOKIE_DETAIL) {
 

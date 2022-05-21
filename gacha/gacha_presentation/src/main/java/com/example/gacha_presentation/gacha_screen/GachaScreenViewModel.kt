@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.core.data.preferences.Preferences
 import com.example.core.util.UiEvent
 import com.example.gacha_domain.models.GachaCookie
 import com.example.gacha_domain.models.Rarity
@@ -19,7 +20,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GachaScreenViewModel @Inject constructor(
-    private val gachaUseCases: GachaUseCases
+    private val gachaUseCases: GachaUseCases,
+    private val preferences: Preferences
 ): ViewModel() {
     var state by mutableStateOf(GachaScreenState())
         private set
@@ -31,6 +33,9 @@ class GachaScreenViewModel @Inject constructor(
 
 
     init {
+        state = state.copy(
+            totalCrystals = preferences.getTotalCrystalsSpent()
+        )
         viewModelScope.launch {
             gachaUseCases.determineShouldPopulateDb()
         }
@@ -46,8 +51,10 @@ class GachaScreenViewModel @Inject constructor(
                    if (pull?.isActive == true) return@launch
                    pull = viewModelScope.launch(Dispatchers.IO) {
                        state = state.copy(
-                           pulledCookies = refreshCookieList()
+                           pulledCookies = refreshCookieList(),
+                           totalCrystals = state.totalCrystals + 3000
                        )
+                       preferences.updateTotalCrystalsSpent(state.totalCrystals)
                    }
                 }
             }
@@ -58,6 +65,10 @@ class GachaScreenViewModel @Inject constructor(
 
             }
             is GachaScreenEvent.OnClearInventoryClick -> {
+                preferences.updateTotalCrystalsSpent(0)
+                state = state.copy(
+                    totalCrystals = 0
+                )
                 viewModelScope.launch(Dispatchers.IO) {
                     gachaUseCases.deleteInventory()
                 }

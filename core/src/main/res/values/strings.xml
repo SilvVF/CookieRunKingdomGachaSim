@@ -10,5 +10,8 @@
     <string name="healing">Ambush</string>
 
     <string name="pure_vanilla">Pure Vanilla</string>
+
+    <string name="my_cookies">My Cookies</string>
+    <string name="highest_grade">Highest Grade!</string>
     
 </resources>

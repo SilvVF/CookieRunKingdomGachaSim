@@ -16,4 +16,14 @@ class DefaultPreferences(
             .putBoolean(Preferences.SAVE_DB_IS_POPULATED, shouldPopulate)
             .apply()
     }
+
+    override fun getTotalCrystalsSpent(): Int {
+        return sharedPref.getInt(Preferences.TOTAL_CRYSTALS_SPENT, 0)
+    }
+
+    override fun updateTotalCrystalsSpent(total: Int) {
+        sharedPref.edit()
+            .putInt(Preferences.TOTAL_CRYSTALS_SPENT, total)
+            .apply()
+    }
 }
