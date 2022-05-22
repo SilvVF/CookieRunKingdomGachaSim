@@ -7,5 +7,5 @@ dependencies {
     "implementation"(project(Modules.coreUi))
     "implementation"(project(Modules.inventoryDomain))
 
-    "implementation"(Coil.coilCompose)
+    "implementation"("io.coil-kt:coil-compose:2.1.0")
 }
