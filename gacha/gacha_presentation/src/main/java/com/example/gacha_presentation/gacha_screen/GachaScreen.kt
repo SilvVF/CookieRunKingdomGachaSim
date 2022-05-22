@@ -1,7 +1,5 @@
 package com.example.gacha_presentation.gacha_screen
 
-
-
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.gestures.animateScrollBy
@@ -11,7 +9,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,12 +21,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.AsyncImage
 import com.example.core.util.UiEvent
 import com.example.core_ui.LocalSpacing
 import com.example.gacha_presentation.R
 import com.example.gacha_presentation.components.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -47,6 +43,7 @@ fun GachaScreen(
     var alertDialogState  by remember {
         mutableStateOf(false)
     }
+    val context = LocalContext.current
     var currAlertIndex by remember { mutableStateOf(0) }
     var currentAlert by remember {
         mutableStateOf(
@@ -55,7 +52,6 @@ fun GachaScreen(
     }
 
     if (alertDialogState) {
-
             AlertDialog(
                 onDismissRequest = {
                     if (currentAlert.getOrNull(currAlertIndex  + 1) == null){
@@ -65,15 +61,13 @@ fun GachaScreen(
                     currAlertIndex += 1
                 },
                 buttons = {
-                    if (currentAlert.lastIndex < currAlertIndex) return@AlertDialog
-                    Image(
-                        painter = painterResource(id = currentAlert[currAlertIndex]),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(Color.LightGray)
-                    )
+                    if (currentAlert.getOrNull(currAlertIndex) == null) return@AlertDialog
+                         Image(
+                             painter = painterResource(id = currentAlert[currAlertIndex]),
+                             contentDescription = null,
+                             modifier = Modifier.fillMaxSize(),
+                             contentScale = ContentScale.FillBounds
+                         )
                 },
                 properties = DialogProperties(
                     dismissOnClickOutside = true

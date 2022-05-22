@@ -25,26 +25,32 @@ fun InventoryCookieItem(
     cookie: InventoryCookie,
     onCookieClick: (Int) -> Unit
 ){
-    Column (
-       modifier = modifier
-            .clip(RoundedCornerShape(20.dp))
-            .fillMaxWidth()
-            .fillMaxHeight()
-           .border(BorderStroke(4.dp, Color.Black))
-           .shadow(2.dp)
-    ) {
-            Image(
-                painter = painterResource(id = cookie.cookieInventoryImage),
-                contentDescription = null,
-                modifier = Modifier.height(120.dp).fillMaxWidth(),
-                contentScale = ContentScale.Crop
-            )
-            CookieItemBottomBar(
-                modifier = Modifier.fillMaxWidth().fillMaxHeight(0.2f),
-                soulstoneCount = cookie.soulStoneCount.toFloat(),
-                soulStoneMax = cookie.soulStoneMax.toFloat(),
-                soulStoneImageId = cookie.soulStoneImage,
-                fontSize = 20
-            )
-    }
+   Box(modifier = modifier
+       .clip(RoundedCornerShape(20.dp))
+       .wrapContentSize()
+       .border(
+           border = BorderStroke(4.dp, Color.Black),
+           shape = RoundedCornerShape(20.dp)
+       )
+   ) {
+       Image(
+           painter = painterResource(id = cookie.cookieInventoryImage),
+           contentDescription = null,
+           modifier = Modifier
+               .height(120.dp)
+               .width(120.dp)
+               .offset(x = 0.dp, y= (-2).dp)
+               .fillMaxSize(),
+           contentScale = ContentScale.Fit
+       )
+       CookieItemBottomBar(
+           modifier = Modifier
+               .width(120.dp)
+               .align(Alignment.BottomCenter),
+           soulstoneCount = cookie.soulStoneCount.toFloat(),
+           soulStoneMax = cookie.soulStoneMax.toFloat(),
+           soulStoneImageId = cookie.soulStoneImage,
+           fontSize = 14
+       )
+   }
 }

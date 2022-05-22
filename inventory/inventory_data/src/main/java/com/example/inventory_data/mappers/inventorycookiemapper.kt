@@ -17,7 +17,7 @@ fun CookieEntity.toInventoryCookie(): InventoryCookie {
             else -> 100
         },
         soulStoneImage = soulStoneImage,
-        cookieInventoryImage = cookieGachaImage,
+        cookieInventoryImage = this.cookieImage,
         type = Type.fromString(type),
         rarity = Rarity.fromString(rarity),
         starCount = when (this.soulStoneCount) {

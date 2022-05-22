@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.RoundRect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -39,7 +40,7 @@ fun CookieItemBottomBar(
         modifier = modifier
             .clip(RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp))
             .background(Color.DarkGray)
-            .height(40.dp)
+            .height(32.dp)
             .padding(start = 4.dp, end = 4.dp, top = 2.dp, bottom = 2.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
@@ -55,7 +56,7 @@ fun CookieItemBottomBar(
         } else {
             Box(modifier = Modifier){
                 Canvas(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize().padding(5.dp)
                 )
                 {
                     drawRoundRect(
@@ -74,9 +75,10 @@ fun CookieItemBottomBar(
                 Image(
                     painter = painterResource(id = soulStoneImageId),
                     contentDescription = null,
+                    contentScale = ContentScale.Fit,
                     modifier = Modifier
                         .align(Alignment.CenterStart)
-                        .offset(x = (-3).dp)
+                        .offset(x = (-2).dp, y = (-2).dp)
                 )
                 Text(
                     text = "${soulstoneCount.toInt()} / ${soulStoneMax.toInt()}",
