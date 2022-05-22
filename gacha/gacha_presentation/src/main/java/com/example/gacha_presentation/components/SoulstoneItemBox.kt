@@ -1,6 +1,7 @@
 package com.example.gacha_presentation.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -18,11 +19,13 @@ fun SoulstoneItemBox(
     width: Int = 60,
     imageId: Int,
     count: Int,
+    onClick: () -> Unit
 ) {
     Box(
         modifier = modifier
             .height(height.dp)
-            .width(width.dp),
+            .width(width.dp)
+            .clickable { onClick() },
         contentAlignment = Alignment.Center
     ) {
         Image(

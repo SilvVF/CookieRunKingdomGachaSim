@@ -68,7 +68,7 @@ dependencies {
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
 
-    implementation(Coil.coilCompose)
+    implementation("io.coil-kt:coil-compose:2.1.0")
 
     implementation(Google.material)
 

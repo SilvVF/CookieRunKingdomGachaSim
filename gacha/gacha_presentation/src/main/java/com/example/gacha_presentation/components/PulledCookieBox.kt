@@ -25,9 +25,7 @@ import java.time.LocalDateTime
 @Composable
 fun PulledCookieBox(
     cookiesPulled: List<GachaCookie>,
-    onCookieClick: (id: Int) -> Unit,
-    time: LocalDateTime,
-    date: LocalDate,
+    onCookieClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val spacing = LocalSpacing.current
@@ -64,12 +62,16 @@ fun PulledCookieBox(
                     if (cookie.isFullCookie) {
                         CookieItemBox(
                             imageId = cookie.cookieGachaImage,
-                        )
+                        ){
+                            onCookieClick(cookie.name)
+                        }
                     } else {
                         SoulstoneItemBox(
                             imageId = cookie.soulStoneImage,
                             count = cookie.soulStoneCount
-                        )
+                        ){
+                            onCookieClick(cookie.name)
+                        }
                     }
                 }
             }
@@ -83,12 +85,16 @@ fun PulledCookieBox(
                     if (cookie.isFullCookie) {
                         CookieItemBox(
                             imageId = cookie.cookieGachaImage,
-                        )
+                        ){
+                            onCookieClick(cookie.name)
+                        }
                     } else {
                         SoulstoneItemBox(
                             imageId = cookie.soulStoneImage,
                             count = cookie.soulStoneCount
-                        )
+                        ){
+                            onCookieClick(cookie.name)
+                        }
                     }
                 }
             }

@@ -21,10 +21,10 @@ interface CookieDao {
     )
     suspend fun updateCookieInfo(cookieEntity: CookieEntity)
 
-    @Query("SELECT * FROM cookieentity WHERE name = :name LIMIT 1")
+    @Query("SELECT * FROM cookieentity WHERE :name = name")
     suspend fun getCookieByName(name: String): CookieEntity
 
-    @Query("SELECT * FROM cookieentity WHERE id = :id  LIMIT 1")
+    @Query("SELECT * FROM cookieentity WHERE id = :id")
     suspend fun getCookieById(id: Int): CookieEntity
 
     @Query("DELETE FROM cookieentity")

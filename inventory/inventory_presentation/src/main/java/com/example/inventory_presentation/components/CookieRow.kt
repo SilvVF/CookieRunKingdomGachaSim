@@ -13,32 +13,26 @@ import com.example.inventory_domain.models.InventoryCookie
 fun CookieRow(
     modifier: Modifier = Modifier,
     cookies: List<InventoryCookie>,
+    onCookieClick:(String) -> Unit
 ) {
     val spacing = LocalSpacing.current
     Row(
         modifier = modifier
     ) {
-        Box(
-            Modifier.weight(1f)
-        ) {
-            if (cookies.getOrNull(0) != null)
-            InventoryCookieItem(
-                cookie = cookies[0],
-            ){
-
+        cookies.forEach { cookie ->
+            Box(
+                Modifier.weight(1f).padding(6.dp)
+            ) {
+                if (cookies.getOrNull(0) != null)
+                    InventoryCookieItem(
+                        cookie = cookie,
+                    ){
+                        onCookieClick(it)
+                    }
             }
+            Spacer(modifier = Modifier.width(spacing.spaceSmall))
         }
-        Spacer(modifier = Modifier.width(spacing.spaceMedium))
-        Box (
-            Modifier.weight(1f)
-        ){
-            if (cookies.getOrNull(1) != null)
-            InventoryCookieItem(
-                cookie = cookies[1],
-            ){
 
-            }
-        }
     }
 
 }

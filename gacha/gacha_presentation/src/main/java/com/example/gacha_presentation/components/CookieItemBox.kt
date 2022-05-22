@@ -19,14 +19,13 @@ fun CookieItemBox(
     height: Int = 60,
     width: Int = 60,
     imageId: Int,
+    onClick: () -> Unit
 ) {
 
     Box(
         modifier = modifier
                 .height(height.dp)
-                .width(width.dp).clickable {
-
-            },
+                .width(width.dp).clickable { onClick() },
             contentAlignment = Alignment.Center
     ) {
         Image(
