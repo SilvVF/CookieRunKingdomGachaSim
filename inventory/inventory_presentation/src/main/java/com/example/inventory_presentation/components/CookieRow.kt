@@ -13,6 +13,7 @@ import com.example.inventory_domain.models.InventoryCookie
 fun CookieRow(
     modifier: Modifier = Modifier,
     cookies: List<InventoryCookie>,
+    onCookieClick:(String) -> Unit
 ) {
     val spacing = LocalSpacing.current
     Row(
@@ -26,7 +27,7 @@ fun CookieRow(
                     InventoryCookieItem(
                         cookie = cookie,
                     ){
-
+                        onCookieClick(it)
                     }
             }
             Spacer(modifier = Modifier.width(spacing.spaceSmall))

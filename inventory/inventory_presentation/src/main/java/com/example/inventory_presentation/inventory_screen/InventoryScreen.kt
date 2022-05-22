@@ -21,7 +21,8 @@ import com.example.inventory_presentation.inventory_screen.inventory_models.Inve
 
 @Composable
 fun InventoryScreen(
-    viewModel: InventoryViewModel = hiltViewModel()
+    viewModel: InventoryViewModel = hiltViewModel(),
+    onCookieSelected: (String) -> Unit
 ) {
     val spacing = LocalSpacing.current
     val state = viewModel.state
@@ -48,7 +49,9 @@ fun InventoryScreen(
                         state.cookieList[it * 3  + 1],
                         state.cookieList[it * 3  + 2]
                     ),
-                )
+                ){ name ->
+                   onCookieSelected(name)
+                }
                 Spacer(modifier = Modifier.height(spacing.spaceMedium))
             }
         }

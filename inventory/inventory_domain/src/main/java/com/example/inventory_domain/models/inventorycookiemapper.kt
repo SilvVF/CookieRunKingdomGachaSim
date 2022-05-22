@@ -1,13 +1,11 @@
-package com.example.inventory_data.mappers
+package com.example.inventory_domain.models
 
 import com.example.core.data.local.entity.CookieEntity
-import com.example.inventory_domain.models.InventoryCookie
-import com.example.inventory_domain.models.Rarity
-import com.example.inventory_domain.models.Type
+
 
 fun CookieEntity.toInventoryCookie(): InventoryCookie {
     return InventoryCookie(
-        name = name ,
+        name = this.name ,
         soulStoneCount = when (this.soulStoneCount) {
             in (0..19) -> this.soulStoneCount
             in (20..49) -> this.soulStoneCount - 20

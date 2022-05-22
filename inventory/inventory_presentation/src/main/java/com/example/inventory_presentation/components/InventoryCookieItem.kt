@@ -1,9 +1,6 @@
 package com.example.inventory_presentation.components
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -23,7 +20,7 @@ import com.example.inventory_domain.models.InventoryCookie
 fun InventoryCookieItem(
     modifier: Modifier = Modifier,
     cookie: InventoryCookie,
-    onCookieClick: (Int) -> Unit
+    onCookieClick: (String) -> Unit
 ){
    Box(modifier = modifier
        .clip(RoundedCornerShape(20.dp))
@@ -32,6 +29,9 @@ fun InventoryCookieItem(
            border = BorderStroke(4.dp, Color.Black),
            shape = RoundedCornerShape(20.dp)
        )
+       .clickable {
+           onCookieClick(cookie.name)
+       }
    ) {
        Image(
            painter = painterResource(id = cookie.cookieInventoryImage),

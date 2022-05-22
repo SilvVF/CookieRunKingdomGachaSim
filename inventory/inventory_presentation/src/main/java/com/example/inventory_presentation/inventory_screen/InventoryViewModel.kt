@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.inventory_domain.models.InventoryCookie
 import com.example.inventory_domain.use_cases.InventoryUseCases
 import com.example.inventory_presentation.inventory_screen.inventory_models.InventoryScreenEvent
 import com.example.inventory_presentation.inventory_screen.inventory_models.InventoryState

@@ -7,7 +7,7 @@ class GetCookieByName (
     private val repository: InventoryRepository
 ) {
 
-    suspend fun invoke(name: String): InventoryCookie {
+    suspend operator fun invoke(name: String): InventoryCookie {
         return repository.getCookieByName(name = name)
     }
 }

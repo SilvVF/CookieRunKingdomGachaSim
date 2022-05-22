@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -21,18 +20,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.AsyncImage
 import com.example.core.util.UiEvent
 import com.example.core_ui.LocalSpacing
 import com.example.gacha_presentation.R
 import com.example.gacha_presentation.components.*
 import kotlinx.coroutines.launch
-import java.time.LocalDate
-import java.time.LocalDateTime
 
 @Composable
 fun GachaScreen(
-    onNavigateToInventory:() -> Unit,
+    onNavigateToInventory: () -> Unit,
+    onNavigateToCookie: (String) -> Unit,
     viewModel: GachaScreenViewModel = hiltViewModel()
 ) {
     val state  = viewModel.state
@@ -43,7 +40,6 @@ fun GachaScreen(
     var alertDialogState  by remember {
         mutableStateOf(false)
     }
-    val context = LocalContext.current
     var currAlertIndex by remember { mutableStateOf(0) }
     var currentAlert by remember {
         mutableStateOf(
@@ -102,7 +98,7 @@ fun GachaScreen(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            Row() {
+            Row {
                 Button(
                     onClick = { onNavigateToInventory() },
                     modifier = Modifier
@@ -154,10 +150,8 @@ fun GachaScreen(
                             PulledCookieBox(
                                 cookiesPulled = it,
                                 onCookieClick = {
-
+                                        onNavigateToCookie(it)
                                 },
-                                time = LocalDateTime.now(),
-                                date = LocalDate.now(),
                                 modifier = Modifier
                                     .height(175.dp)
                                     .padding(end = spacing.spaceLarge)
