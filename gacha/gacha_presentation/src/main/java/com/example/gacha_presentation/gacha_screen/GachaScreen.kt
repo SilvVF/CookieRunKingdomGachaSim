@@ -6,25 +6,24 @@ import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.DialogProperties
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.core.util.UiEvent
 import com.example.core_ui.LocalSpacing
 import com.example.gacha_presentation.R
 import com.example.gacha_presentation.components.*
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 @Composable
 fun GachaScreen(
@@ -34,54 +33,37 @@ fun GachaScreen(
 ) {
     val state  = viewModel.state
     val spacing = LocalSpacing.current
-    val listState = rememberLazyListState()
     // Remember a CoroutineScope to be able to launch
     val coroutineScope = rememberCoroutineScope()
-    var alertDialogState  by remember {
-        mutableStateOf(false)
-    }
-    var currAlertIndex by remember { mutableStateOf(0) }
-    var currentAlert by remember {
-        mutableStateOf(
-            listOf<Int>()
-        )
-    }
-
-    if (alertDialogState) {
-            AlertDialog(
-                onDismissRequest = {
-                    if (currentAlert.getOrNull(currAlertIndex  + 1) == null){
-                        alertDialogState = false
-                        currAlertIndex = 0
-                    }
-                    currAlertIndex += 1
-                },
-                buttons = {
-                    if (currentAlert.getOrNull(currAlertIndex) == null) return@AlertDialog
-                         Image(
-                             painter = painterResource(id = currentAlert[currAlertIndex]),
-                             contentDescription = null,
-                             modifier = Modifier.fillMaxSize(),
-                             contentScale = ContentScale.FillBounds
-                         )
-                },
-                properties = DialogProperties(
-                    dismissOnClickOutside = true
-                ),
-                modifier = Modifier.size(300.dp, 300.dp)
-            )
-    }
-
-    LaunchedEffect(key1 = true ){
-        viewModel.uiEvent.collect {
-            when (it) {
-                is UiEvent.ShowAlertDialog -> {
-                    currentAlert = it.id
-                    alertDialogState = true
-                }
-                else ->{}
-            }
+    if (state.shouldDisplayPopup) {
+        val popups = remember {
+            mutableStateOf(state.currentCookiePopups.iterator())
         }
+        var currPopup by remember {
+            mutableStateOf(popups.value.next().toPair())
+        }
+            if (currPopup.first.isNotEmpty())
+            CookiePopup(
+                imageId = currPopup.second,
+                cookieName = currPopup.first,
+                onDismiss = {
+                    if (popups.value.hasNext()) {
+                        currPopup = popups.value.next().toPair()
+                    }
+                    else viewModel.onEvent(GachaScreenEvent.OnDismissPopupScreen)
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(0.5f)
+                    .clip(RoundedCornerShape(12.dp))
+                    .border(
+                        BorderStroke(
+                            width = 2.dp, color = Color.DarkGray
+                        ),
+                        shape = RoundedCornerShape(12.dp)
+                    )
+                    .background(Color.LightGray)
+            )
     }
     Box(
         Modifier.fillMaxSize()
@@ -103,20 +85,24 @@ fun GachaScreen(
                     onClick = { onNavigateToInventory() },
                     modifier = Modifier
                         .padding(spacing.spaceMedium)
-                        .weight(1f)
+                        .weight(1f),
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFFFC904))
                 ) {
                     Text(
-                        text = stringResource(id = R.string.inventory)
+                        text = stringResource(id = R.string.inventory),
+                        color = Color.White
                     )
                 }
                 Button(
                     onClick = { viewModel.onEvent(GachaScreenEvent.OnClearInventoryClick) },
                     modifier = Modifier
                         .padding(spacing.spaceMedium)
-                        .weight(1f)
+                        .weight(1f),
+                    colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFFF4D4F))
                 ) {
                     Text(
-                        text = stringResource(id = R.string.reset)
+                        text = stringResource(id = R.string.reset),
+                        color = Color.White
                     )
                 }
             }
@@ -124,28 +110,33 @@ fun GachaScreen(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(375.dp)
+                    .wrapContentHeight()
                     .background(
                         Color.LightGray.copy(
                             alpha = 0.5f
                         )
                     )
             ) {
-                GachaHistoryText(text = stringResource(id = R.string.gacha_history))
+                GachaHistoryText(
+                    text = stringResource(id = R.string.gacha_history),
+                    modifier = Modifier.align(CenterHorizontally)
+                )
                 Spacer(modifier = Modifier.height(spacing.spaceMedium))
                 LazyRow(
                     modifier = Modifier
-                        .height(350.dp)
+                        .wrapContentHeight()
                         .fillMaxWidth()
                         .padding(16.dp),
                     reverseLayout = false,
-                    state = listState
+                    state = state.listState
                 ) {
                     items(state.pulledCookies) {
                         Column {
                             CookieBoxTopBar(
                                 modifier = Modifier
-                                .width(350.dp)
+                                .width(350.dp),
+                                time = LocalDateTime.now(),
+                                date = LocalDate.now()
                             )
                             PulledCookieBox(
                                 cookiesPulled = it,
@@ -159,25 +150,30 @@ fun GachaScreen(
                         }
                     }
                 }
+                TotalCrystalBox(
+                    total = state.totalCrystals,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(spacing.spaceSmall)
+                        .align(CenterHorizontally)
+                )
             }
             Spacer(modifier =  Modifier.height(spacing.spaceExtraLarge))
-            Text(
-                text = "Total Crystals Spent \n" +
-                        "${state.totalCrystals}",
-                fontSize = 30.sp,
-                fontWeight = FontWeight.ExtraBold,
-            )
             GachaDrawButton(
                 modifier = Modifier
+                    .size(height = 70.dp, width = 180.dp)
+                    .clip(RoundedCornerShape(12.dp)),
+                textSize = 20,
+                textColor = Color.White
             ) {
                 viewModel.onEvent(GachaScreenEvent.OnDrawTenButtonClick)
                 coroutineScope.launch {
-                    listState.animateScrollToItem(
+                    state.listState.animateScrollToItem(
                         index = 0,
                         scrollOffset = 0
                     )
-                    listState.animateScrollBy(
-                        value = listState.firstVisibleItemScrollOffset.toFloat(),
+                    state.listState.animateScrollBy(
+                        value = state.listState.firstVisibleItemScrollOffset.toFloat(),
                         animationSpec = spring(
                             dampingRatio = Spring.DampingRatioMediumBouncy,
                             stiffness = Spring.StiffnessLow,

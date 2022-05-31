@@ -5,4 +5,6 @@
     <string name="inventory">Inventory</string>
     <string name="draw_10">Draw 10</string>
     <string name="reset">reset inventory</string>
+    <string name="total">Total Spent</string>
+    <string name="draw_10_cost">3000</string>
 </resources>

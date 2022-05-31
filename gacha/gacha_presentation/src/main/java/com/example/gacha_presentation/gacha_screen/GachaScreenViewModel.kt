@@ -31,6 +31,7 @@ class GachaScreenViewModel @Inject constructor(
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
+    val currentCookiePopup = mutableMapOf<String, Int>()
 
     init {
         state = state.copy(
@@ -52,6 +53,8 @@ class GachaScreenViewModel @Inject constructor(
                    pull = viewModelScope.launch(Dispatchers.IO) {
                        state = state.copy(
                            pulledCookies = refreshCookieList(),
+                           shouldDisplayPopup = currentCookiePopup.isNotEmpty(),
+                           currentCookiePopups = currentCookiePopup,
                            totalCrystals = state.totalCrystals + 3000
                        )
                        preferences.updateTotalCrystalsSpent(state.totalCrystals)
@@ -73,10 +76,15 @@ class GachaScreenViewModel @Inject constructor(
                     gachaUseCases.deleteInventory()
                 }
             }
+            is GachaScreenEvent.OnDismissPopupScreen ->  {
+                state = state.copy(
+                    shouldDisplayPopup = false
+                )
+            }
         }
     }
     private suspend fun refreshCookieList(): List<List<GachaCookie>> {
-        val imageIdList = mutableListOf<Int>()
+        currentCookiePopup.clear()
         val res = mutableListOf(gachaUseCases.performCookieGacha().onEach { cookie  ->
             if (cookie.isFullCookie &&
                 cookie.rarity == Rarity.Epic ||
@@ -84,13 +92,12 @@ class GachaScreenViewModel @Inject constructor(
                 cookie.rarity == Rarity.SuperEpic ||
                 cookie.rarity == Rarity.Legendary
             ) {
-                imageIdList.add(cookie.cookieImageAnimated)
+                currentCookiePopup[cookie.name] = cookie.cookieImageAnimated
             }
         })
-        if (imageIdList.isNotEmpty()) _uiEvent.send(UiEvent.ShowAlertDialog(imageIdList))
         res.addAll(state.pulledCookies)
-
         return gachaUseCases.filterCookieList(res)
+
     }
 }
 
