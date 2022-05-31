@@ -8,4 +8,5 @@ sealed class GachaScreenEvent {
     object OnToggleTreasureClick: GachaScreenEvent()
     object OnToggleCookieClick: GachaScreenEvent()
     object OnClearInventoryClick: GachaScreenEvent()
+    object OnDismissPopupScreen: GachaScreenEvent()
 }
