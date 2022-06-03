@@ -50,5 +50,6 @@ fun CookieEntity.toInfoCookie(): InfoCookie {
         skill = skill,
         skillIcon = skillIcon,
         quote = quote,
+        headIcon = cookieGachaImage
     )
 }

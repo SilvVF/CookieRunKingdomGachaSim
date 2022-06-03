@@ -4,6 +4,8 @@ data class InfoCookie(
 val name: String, //res id
 val cookieInfoImage: Int,
 
+val headIcon: Int,
+
 val type: Type,
 //val skill: String,
 val rarity: Rarity,

@@ -5,7 +5,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.inventory_domain.models.InfoCookie
+import com.example.inventory_domain.models.Position
+import com.example.inventory_domain.models.Rarity
+import com.example.inventory_domain.models.Type
 import com.example.inventory_domain.use_cases.InventoryUseCases
+import com.example.inventory_presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,11 +20,24 @@ class CookieScreenViewModel @Inject constructor(
     private val useCases: InventoryUseCases
 ): ViewModel() {
 
-    var state by mutableStateOf(CookieScreenState())
+    private val defaultCookie = InfoCookie(
+        "",
+        com.example.core.R.drawable.cookie_cutter,
+        com.example.core.R.drawable.cookie_cutter,
+        Type.Ambush,
+        Rarity.Rare,
+        Position.BACK,
+        "",
+        "",
+        "",
+        com.example.core.R.drawable.cookie_cutter,
+        ""
+    )
+    var state by mutableStateOf(CookieScreenState(defaultCookie))
 
     fun updateCookie(name: String) = viewModelScope.launch {
-        state = state.copy(
-            cookie = useCases.getCookieByName(name)
-        )
+            state = state.copy(
+                cookie = useCases.getCookieByName(name)
+            )
     }
 }

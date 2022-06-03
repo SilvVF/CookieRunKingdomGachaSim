@@ -15,6 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.inventory_domain.models.InventoryCookie
+import com.example.inventory_presentation.inventory_screen.CookieStars
 
 @Composable
 fun InventoryCookieItem(
@@ -39,9 +40,16 @@ fun InventoryCookieItem(
            modifier = Modifier
                .height(120.dp)
                .width(120.dp)
-               .offset(x = 0.dp, y= (-2).dp)
+               .offset(x = 0.dp, y = (-2).dp)
                .fillMaxSize(),
            contentScale = ContentScale.Fit
+       )
+       CookieStars(
+           starCount = cookie.starCount,
+           modifier = Modifier
+               .fillMaxWidth()
+               .align(Alignment.BottomCenter)
+               .offset(y = (-34).dp)
        )
        CookieItemBottomBar(
            modifier = Modifier

@@ -31,7 +31,7 @@ fun GachaScreen(
     onNavigateToCookie: (String) -> Unit,
     viewModel: GachaScreenViewModel = hiltViewModel()
 ) {
-    val state  = viewModel.state
+    val state = viewModel.state
     val spacing = LocalSpacing.current
     // Remember a CoroutineScope to be able to launch
     val coroutineScope = rememberCoroutineScope()
@@ -42,14 +42,12 @@ fun GachaScreen(
         var currPopup by remember {
             mutableStateOf(popups.value.next().toPair())
         }
-            if (currPopup.first.isNotEmpty())
+        if (currPopup.first.isNotEmpty())
             CookiePopup(
                 imageId = currPopup.second,
                 cookieName = currPopup.first,
                 onDismiss = {
-                    if (popups.value.hasNext()) {
-                        currPopup = popups.value.next().toPair()
-                    }
+                    if (popups.value.hasNext()) currPopup = popups.value.next().toPair()
                     else viewModel.onEvent(GachaScreenEvent.OnDismissPopupScreen)
                 },
                 modifier = Modifier
@@ -134,14 +132,14 @@ fun GachaScreen(
                         Column {
                             CookieBoxTopBar(
                                 modifier = Modifier
-                                .width(350.dp),
+                                    .width(350.dp),
                                 time = LocalDateTime.now(),
                                 date = LocalDate.now()
                             )
                             PulledCookieBox(
                                 cookiesPulled = it,
                                 onCookieClick = {
-                                        onNavigateToCookie(it)
+                                    onNavigateToCookie(it)
                                 },
                                 modifier = Modifier
                                     .height(175.dp)
@@ -158,7 +156,7 @@ fun GachaScreen(
                         .align(CenterHorizontally)
                 )
             }
-            Spacer(modifier =  Modifier.height(spacing.spaceExtraLarge))
+            Spacer(modifier = Modifier.height(spacing.spaceExtraLarge))
             GachaDrawButton(
                 modifier = Modifier
                     .size(height = 70.dp, width = 180.dp)
@@ -166,6 +164,7 @@ fun GachaScreen(
                 textSize = 20,
                 textColor = Color.White
             ) {
+                if (state.shouldDisplayPopup) viewModel.onEvent(GachaScreenEvent.OnDismissPopupScreen)
                 viewModel.onEvent(GachaScreenEvent.OnDrawTenButtonClick)
                 coroutineScope.launch {
                     state.listState.animateScrollToItem(
@@ -185,4 +184,5 @@ fun GachaScreen(
         }
     }
 }
+
 

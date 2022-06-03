@@ -50,7 +50,7 @@ fun CookieItemBottomBar(
                 text = stringResource(id = R.string.highest_grade),
                 fontSize = fontSize.sp,
                 style = MaterialTheme.typography.h3,
-                color = Color.White,
+                color = Color.Yellow,
                 fontWeight = FontWeight.ExtraBold,
             )
         } else {

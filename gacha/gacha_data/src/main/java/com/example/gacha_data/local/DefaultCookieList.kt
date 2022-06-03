@@ -23,7 +23,7 @@ object DefaultCookieList {
             name = "Pure Vanilla",
             soulStoneImage = R.drawable.pure_vanilla_soulstone,
             cookieImage = R.drawable.pure_vanilla_character_card,
-            cookieImageAnimated = R.drawable.pure_vanilla_animated,
+            cookieImageAnimated = R.drawable.pure_vanilla_face_icon,
             cookieGachaImage = R.drawable.pure_vanilla_face_icon,
             type = HEALING,
             rarity = ANCIENT,
