@@ -12,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -56,11 +57,16 @@ fun GachaScreen(
                     .clip(RoundedCornerShape(12.dp))
                     .border(
                         BorderStroke(
-                            width = 2.dp, color = Color.DarkGray
+                            width = 2.dp,
+                            brush = Brush.linearGradient(
+                                listOf(
+                                    Color.Magenta,
+                                    Color.Cyan,
+                                )
+                            )
                         ),
                         shape = RoundedCornerShape(12.dp)
                     )
-                    .background(Color.LightGray)
             )
     }
     Box(

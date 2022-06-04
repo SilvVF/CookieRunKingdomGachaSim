@@ -18,9 +18,8 @@ fun CookieInfoImageBox(
     modifier: Modifier = Modifier,
     cookie: InfoCookie,
 ) {
-    val spacing = LocalSpacing.current
     Box(
-        Modifier.fillMaxSize()
+        modifier = modifier
     ) {
         Image(
             painter = painterResource(id = R.drawable.maxresdefault),
