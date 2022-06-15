@@ -10,9 +10,9 @@ data class CookieEntity (
     val soulStoneCount: Int = 0,
     val soulStoneImage: Int,
 
-    val cookieImage: Int,
-    val cookieImageAnimated: Int,
-    val cookieGachaImage: Int,
+    val cookieCard: Int,
+    val cookieFullArt: Int,
+    val cookieFaceIcon: Int,
 
     val type: String,
     val rarity: String,

@@ -7,5 +7,4 @@ import com.example.inventory_domain.models.InventoryCookie
 
 data class CookieScreenState(
     val cookie: InfoCookie,
-    val scrollState: ScrollState = ScrollState(0),
 )

@@ -1,6 +1,5 @@
 package com.example.inventory_domain.models
 
-import android.icu.text.Transliterator
 import com.example.core.data.local.entity.CookieEntity
 
 
@@ -16,7 +15,7 @@ fun CookieEntity.toInventoryCookie(): InventoryCookie {
             else -> 100
         },
         soulStoneImage = soulStoneImage,
-        cookieInventoryImage = this.cookieImage,
+        cookieInventoryImage = this.cookieCard,
         type = Type.fromString(type),
         rarity = Rarity.fromString(rarity),
         starCount = when (this.soulStoneCount) {
@@ -41,7 +40,7 @@ fun CookieEntity.toInventoryCookie(): InventoryCookie {
 fun CookieEntity.toInfoCookie(): InfoCookie {
     return InfoCookie(
         name = name,
-        cookieInfoImage = cookieImageAnimated,
+        cookieInfoImage = cookieFullArt,
         type = Type.fromString(type),
         rarity = Rarity.fromString(rarity),
         position = Position.fromString(this.position),
@@ -50,6 +49,6 @@ fun CookieEntity.toInfoCookie(): InfoCookie {
         skill = skill,
         skillIcon = skillIcon,
         quote = quote,
-        headIcon = cookieGachaImage
+        headIcon = cookieFaceIcon
     )
 }

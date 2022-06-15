@@ -12,8 +12,8 @@ fun CookieEntity.toCookie(): GachaCookie {
         id = id,
         name = name,
         soulStoneImage = soulStoneImage,
-        cookieImageAnimated = cookieImageAnimated,
-        cookieGachaImage = cookieGachaImage,
+        cookieImageAnimated = cookieFullArt,
+        cookieGachaImage = cookieFaceIcon,
         rarity = Rarity.fromString(rarity),
     )
 }
