@@ -42,7 +42,7 @@ fun InventoryCookieItem(
                .width(120.dp)
                .offset(x = 0.dp, y = (-2).dp)
                .fillMaxSize(),
-           contentScale = ContentScale.Fit
+           contentScale = ContentScale.Crop
        )
        CookieStars(
            starCount = cookie.starCount,

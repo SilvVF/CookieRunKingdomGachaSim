@@ -1,10 +1,7 @@
 package com.example.inventory_domain.di
 
 import com.example.inventory_domain.repository.InventoryRepository
-import com.example.inventory_domain.use_cases.GetAllCookiesFromDb
-import com.example.inventory_domain.use_cases.GetCookieById
-import com.example.inventory_domain.use_cases.GetCookieByName
-import com.example.inventory_domain.use_cases.InventoryUseCases
+import com.example.inventory_domain.use_cases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

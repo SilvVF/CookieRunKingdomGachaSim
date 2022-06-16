@@ -13,5 +13,10 @@
 
     <string name="my_cookies">My Cookies</string>
     <string name="highest_grade">Highest Grade!</string>
-    
+    <string name="position">Position</string>
+    <string name="type">Type</string>
+    <string name="skill_stats">Skill Stats</string>
+    <string name="cooldown">cooldown sec</string>
+    <string name="gacha" >gacha</string>
+    <string name="reset">reset inventory</string>
 </resources>

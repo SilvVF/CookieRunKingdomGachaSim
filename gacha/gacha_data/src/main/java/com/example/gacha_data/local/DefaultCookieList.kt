@@ -856,12 +856,15 @@ object DefaultCookieList {
             type = RANGED,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Charges forward on the back of the Butter Tiger, causing damage to nearby enemies and stunning them. While the effect is active, the Cookie deals more damage with faster Regular Attacks.",
+            skill = "Tiger Rider",
+            gameDescription = "It is not known how Tiger Lily Cookie ended up in the jungle all by herself. Under the constant threat of encroaching enemies, her senses grew sharp. In contrast to her rough outward appearance, she is soft and delicate on the inside. Her only family is her trusty Butter Tiger, whom she cherishes more than anything in the world. Her great skill with the spear and excellent jumping abilities make her one tough Cookie to beat.",
+            quote = "Roarr! Protect... I will...",
+            cooldown = 13,
+            skillStats = "Tiger Rider: attacks atop the Butter Tiger for 5.0 seconds\n" +
+                    "Damage dealt: 127.0% (+1.7% per level)\n" +
+                    "Stun: 3.0 seconds\n" +
+                    "+25.0% ATK SPD for 10.0 sec"
         ),
         CookieEntity(
             name = "Pastry Cookie",
@@ -874,12 +877,16 @@ object DefaultCookieList {
             type = RANGED,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            gameDescription = "In the name of the Dough, the Oven, and the Witches, I shall fulfill my sacred duty!\" Pastry Cookie left her name and her past behind on the day of her Sacred Brining when she was rebaked as a devoted sister of the St. Pastry Order. \"... like a rolling pin flattening the many layers of pastry dough into uniformity, hardships and suffering produce the endurance to conquer the temptations of our crumbly bodies and souls.\" Now, looking from under the golden phyllo veil, these eyes see nothing else but a turbulent world to be rebuilt in the Order's image. Wielding the Fork of Judgment, her consecrated crossbow, Pastry Cookie has set on her next mission to investigate a tainted shrine. And you would be wise not to stand in her way: the cruel cold metal hungers to deliver judgment.",
+            skill = "Battle Prayer",
+            skillDesc = "Injustice shall be purged! After a regular attack, Pastry Cookie fires an arrow of light at the nearest enemy. Under the effect of the Battle Prayer, the Cookie's regular attack DMG and ATK SPD are increased.",
+            quote = "For the Order!",
+            cooldown = 13,
+            skillStats = "Battle Prayer: 10.0 sec\n" +
+                    "+50.0% ATK SPD for 10.0 sec\n" +
+                    "Single hit damage: 80.0% (+0.66-0.67% DMG per level)\n" +
+                    "Lightbringer Arrow Ricochet Hits: 2\n" +
+                    "Lightbringer Arrow Ricochet Damage: 75.0%"
         ),
         CookieEntity(
             name = "Twizzly Gummy Cookie",
@@ -892,12 +899,15 @@ object DefaultCookieList {
             type = RANGED,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Twizzly Gummy Cookie overloads her Electrojelly Gun and fires a powerful electrifying laser beam. While Twizzly Gummy Cookie is using her skill, her CRIT DMG is increased and enemies hit by her laser beam will be Zapped. This is a non-stackable debuff that deals periodic damage and temporarily disrupts HP Shields. While Twizzly Gummy Cookie is charging her laser, she will briefly become resistant to interrupting effects.",
+            skill = "Twizzly Beam",
+            gameDescription = "Would you look at that? Gummy wires twisted here and there, sparks flying everywhere! Maybe that's why Twizzly Gummy Cookie's temperament is like chaos itself! She insists that if she doesn't wreak havoc even for one day, her hair will start crackling electricity! *BZZZZT* With her ticking time bomb of a Electrojelly Gun, she will bulldoze a planet and pulverize the planet right next to it! No wonder they call her the Cosmic Criminal—look at her cause absolute mayhem everywhere she lands! To her, battles are just another game that gives her electrifying thrills. Looks like she's done messing with her universe and ready to jump to another dimension! Just what could she be plotting next? Her evil cackling and rampaging sparks can't be good news... Well, good luck to those who come in her way... because it's gonna hurt!",
+            quote = "Ha... ha ha! HA HA! HA HA HA! Who's next?!",
+            cooldown = 16 ,
+            skillStats = "Single hit DMG (Cookies): 7.7% (+0.1% DMG per level)\n" +
+                    "Single hit DMG (Others): 4.6% (+0.1% DMG per level)\n" +
+                    "Skill CRIT DMG: +350.0%\n" +
+                    "Zap: 2.8% DMG every 1.0 sec for 7.0 sec. Nullifies HP Shield."
         ),
         CookieEntity(
             name = "Caramel Arrow Cookie",
@@ -910,12 +920,17 @@ object DefaultCookieList {
             type = RANGED,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Few enemies can keep their wits when they see the twin blades turning into a bow! Caramel Arrow Cookie performs a ranged attack (targets Cookies first) and leaves an Arrow Mark on the hit enemy. After the ranged attack, the Arrow Mark explodes when Caramel Arrow Cookie rushes towards the enemy, dealing DMG proportional to the enemy's Max HP (this DMG is capped at 300,000). During the ranged attack, Caramel Arrow Cookie receives a buff that makes her immune to debuffs. While Caramel Arrow Cookie is using her skill, she will become resistant to interrupting effects.",
+            skill = "Arrow of Resolution",
+            gameDescription = "At the very edge of the continent, atop the tall wall of the Black Citadel, stands a figure frowning into the dark. Night and day, all year round, Caramel Arrow Cookie, the First Watcher of the Dark Cacao Kingdom, will always protect the Cookies from the horrors of the Licorice Sea. A master of the Dark Cacao martial art tradition of the perfect balance and a wielder of the black and white twin blades, Caramel Arrow Cookie's loyalty to her king and subordinates remains unwavering even in exile. Some say the kingdom is but a shadow of its former glory, with values like trust becoming a commodity. But a vow is a vow. Standing there atop the tall wall, Caramel Arrow Cookie is staring sharply at the churning dark waters below. The First Watcher will protect the Dark Cacao Kingdom until the very last crumb..",
+            quote = "I shall defend the Wall with my life.",
+            cooldown = 10,
+            skillStats = "Ranged attack: 8.0 sec\n" +
+                    "Single hit DMG: 88.3% (+1.2% DMG per level)\n" +
+                    "Arrow Mark: 12 second duration, stacks up to max 12 times\n" +
+                    "DMG relative to Max HP (Cookies): 22.1% (+0.3% DMG per level)\n" +
+                    "DMG relative to Max HP (Others): 2.2% (+0.03% DMG per level)\n" +
+                    "Immunity for 8.0 sec\n"
         ),
         CookieEntity(
             name = "Chili Pepper Cookie",
@@ -928,12 +943,12 @@ object DefaultCookieList {
             type = AMBUSH,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Sneaks behind the enemy, causing area damage to the rearmost line with 4 strikes. The final strike always deals critical damage.",
+            skill = "Cheap Shot",
+            gameDescription = "Chili Pepper Cookie's dough contained much more chili pepper than allowed by the law. This is probably why she doesn't care much about rules at all! Chili Pepper Cookie is a notorious treasure hunter. She never misses a chance to snatch everything valuable she can get her hands on, leaving only chaos and havoc behind. The Cookies know better than to cross her path, and so should you. Good news: you can easily identify this path by a trail of fiery red chili sauce...",
+            quote = "Lost your Coins?",
+            cooldown = 12,
+            skillStats = "Damage dealt: 44.5% (+0.6% DMG per level)"
         ),
         CookieEntity(
             name = "Vampire Cookie",
@@ -946,12 +961,13 @@ object DefaultCookieList {
             type = AMBUSH,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Turns into a bat and attacks the farthest enemy, drinking their blood and restoring some HP depending on the amount of caused damage. Restores some HP with each Regular Attack.",
+            skill = "Vampirism",
+            gameDescription = "The Witch, busy baking several Cookies at once, had forgotten to use her favorite high-quality grapes. Instead, she stored them in oak barrels and let age for a long, long time. And with that special grape juice, she made Vampire Cookie. Naturally, it was difficult for Vampire Cookie to wake up at first—after all, his dough contained more than 10% of strong grape juice! Unlike the other Cookies, Vampire Cookie prefers to do nothing but enjoy life. He wasn't even bothered by the heat of the oven and only escaped because his sister Alchemist Cookie dragged him outside. With his pale face and smug posture, he likes to relax with a glass of grape juice and ponder the meaning of life.",
+            quote = "Why so serious? Let me pour you some juice.",
+            cooldown = 13,
+            skillStats = "Vampirism: 15.0% of DMG\n" +
+                    "Damage dealt: 542.5% (+8-8.05% DMG per level)"
         ),
         CookieEntity(
             name = "Black Raisin Cookie",
@@ -964,12 +980,12 @@ object DefaultCookieList {
             type = AMBUSH,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "No one can hide from the keen Black Raisin Eye! The Cookie vanishes into the shadows, appears amidst the enemy ranks (targets Cookies first), and strikes several times, dealing substantial area damage.",
+            skill = "Shadow Watcher",
+            gameDescription = "Harsh wind, crooked trees, streets ravaged by the war... Who is it there, hiding among the shadows? Black Raisin Cookie, the sole protector of the unfortunate remnants of a once-great Kingdom. Made of shriveled, wrinkly raisins, this Cookie has learned the value of survival no matter what. Even having lost one arm to the dangers of this rough barren, this Cookie keeps hunting for scarce food to feed those who put their trust in her. Despite all the hardships, Black Raisin Cookie doesn't lose the warmth of a Cookie heart: everyone deserves help, even a sorry one-legged crow. A new day is breaking, and another challenge is here. But Black Raisin Cookie will be there for the villagers, watching over them from the dark",
+            quote = "INTRUDER, stop right there!",
+            cooldown = 14,
+            skillStats = "Damage dealt: 79.7% (+0.96-0.97% DMG per level)"
         ),
         CookieEntity(
             name = "Sorbet Shark Cookie",
@@ -982,12 +998,14 @@ object DefaultCookieList {
             type = AMBUSH,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "The Cookie ambushes the frontmost enemies in shark form, dealing area damage. Deals additional damage to the two enemies with the highest Max HP within the skill's area of effect (targets Cookies first). For enemies that are Cookies, the additional attack will be dealt as true damage relative to the enemies' Max HP and cannot exceed 300,000. For other enemies, the additional damage will be regular damage.",
+            skill = "Shark Splash",
+            gameDescription = "Once upon a time, there was a shark that lived in the deep blue sea. This curious swimmer often popped up to the surface to watch the pirates party on their ships. The shark yearned to join the Cookies for these parties, but they always ran away. Saddened, the shark disappeared into the sea for ages. Until suddenly... Sorbet Shark Cookie burst forth from the depths! This Cookie is, frankly, not the fastest runner, can only make bubbly noises instead of words, and gets soggy in the water just like everyone else. But even so, Sorbet Shark Cookie is always wearing a bright smile! After all, the world above the sea is vast and there's so many things to see!",
+            quote = "0Ooo0oo0o!",
+            cooldown =17  ,
+            skillStats = "Single hit DMG: 128.1%\n" +
+                    "DMG relative to Max HP (Cookies): 18.0 % (+0.2% per level)\n" +
+                    "Single Hit DMG (Others): 378.0% (+5.15% DMG per level)"
         ),
         CookieEntity(
             name = "Cherry Blossom Cookie",
@@ -1000,12 +1018,15 @@ object DefaultCookieList {
             type = AMBUSH,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skill= "Cherry Blossom Rain",
+            skillDesc = "Get ready for a storm of cherry blossoms! Cherry Blossom Cookie flies up to shower her enemies with a rain of cherry blossoms, dealing area damage. She will deal additional damage to non-Cookie opponents and increase the ATK of all allies: the bonus value will depend on the number of enemies hit with the skill.",
+            gameDescription = "On a warm spring day, the first pink cherry blossoms were collected, then infused for a generous amount of time. Then this essence was used to create Cherry Blossom Cookie. Just by looking at her, you will feel splendid and warm inside, with a tingle on both your cheeks. On a perfect day, you can see her humming, trying to fly into the air with her umbrella open. She is most adorable when she offers you delicious sandwiches and tea. But watch out, once she starts to chat, you will lose track of time!",
+            quote = "Shall we go on a picnic?",
+            cooldown = 17,
+            skillStats = "Single hit DMG: 48.3% (+0.66% DMG per level)\n" +
+                    "Additional DMG to non-Cookie targets: 10.0%\n" +
+                    "With each 3 hits, the DMG decreases by 20.0% (cannot get decreased by more than 80.0%)\n" +
+                    "+2.5% ATK for 12 sec, stacks up to x10 times"
         ),
         CookieEntity(
             name = "Poison Mushroom Cookie",
@@ -1018,12 +1039,16 @@ object DefaultCookieList {
             type = BOMBER,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Plants mushrooms that release purple poison clouds around themselves. Poisoned enemies become disoriented and suffer from a debuff reducing Healing, but Poison Mushroom Cookie claims that was never the intention... Poison clouds deal extra Poison DMG to monsters and bosses.",
+            skill = "Poison Cloud",
+            gameDescription = "Some mushrooms are good for you, and some are not. Take the Purple Cap Mushroom, for example. Looks so chunky and yummy! That is why that hungry Cookie ate it. Why yes, that was Poison Mushroom Cookie. Always peaceful, always daydreaming. Poison Mushroom Cookie would be mistaken for an actual mushroom in the past, but they were never angry, never at all! Poison Mushroom Cookie greeted and hugged these mistaken Cookies like dear old friends, that's right! They offered every one of them a mushroom of their own- so sweet, so colorful. Just one bite, just one... After all, such big friendly eyes mean no harm. No harm at all...",
+            quote = "Oooh... New friend... Want a shroomy?",
+            cooldown = 15,
+            skillStats = "Single hit DMG: 127.8%\n" +
+                    "Poison DMG: 25.0% DMG (+0.31% DMG per level) every 1.0 sec over 10.0 sec\n" +
+                    "Extra DMG to regular enemies: +80.0%\n" +
+                    "Extra DMG to bosses: +120.0%\n" +
+                    "Healing received: -15.0% for 10.0 sec"
         ),
         CookieEntity(
             name = "Affogato Cookie",
@@ -1036,12 +1061,16 @@ object DefaultCookieList {
             type = BOMBER,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Secretly curses the enemy with the highest ATK (targets Cookies first). The cursed target cannot receive any buff effects for a certain time (limited to buffs that can be dispelled). The cursed target will also receive amplified debuffs and will spread Poison inflicting periodic damage to nearby enemies and themselves. If Poison becomes dispelled, it will cause great damage to nearby enemies.",
+            skill = "Sweet Scheme",
+            gameDescription = "One piping hot cup of dark roasted coffee and a frozen scoop of the sweetest vanilla ice cream! Born of two desserts—so different yet so delicious—Affogato Cookie's flavor is unparalleled! Neither coffee nor ice cream, Affogato Cookie spent restless years without a place to belong until he came up with a simple solution: to create a land of his own once and for all! He appeared out of nowhere on a frigid night in the Dark Cacao Kingdom and has been busy earning the trust and favor of the locals with the help of his strange concoctions and mysterious chants. These are troubling times for the Dark Cacao Kingdom and the throne is empty... What sinister intention is Affogato Cookie hiding behind his snide smile?",
+            quote = "The best medicine... tastes sweet in your mouth.",
+            cooldown = 15,
+            skillStats = "Curse: Target can't receive buffs for 10.0 sec\n" +
+                    "Amplified Debuff: 30.0% for 10.0 sec\n" +
+                    "Poison: DMG every 0.6 sec for 10.0 sec, a total of 500.4% DMG (+6.81% per level)\n" +
+                    "Area Poison: DMG every 1.0 sec for 10.0 sec, a total of 150.1% DMG (+2.04% per level)\n" +
+                    "Poison dispelled: 300.2% DMG (+4.09% per level) to nearby enemies"
         ),
         CookieEntity(
             name = "Mint Choco Cookie",
@@ -1054,12 +1083,13 @@ object DefaultCookieList {
             type = SUPPORT,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Restores some HP and increases Attack Speed of the squad with a sublime melody.",
+            skill = "Battlefield Symphony",
+            gameDescription = "His exquisite performance and dashing looks make him a favorite among the Cookies. His Mint Candy Violin gives off a sweet enchanting candy aroma while he plays. Though often called a genius, he refuses to let all this attention go to his head and never forgets his long years as a humble street performer.",
+            quote = "What piece shall I play for you?",
+            cooldown = 16,
+            skillStats = "Healing: 95.0% of ATK (+1.3% per level)\n" +
+                    "+40.0% ATK SPD for 7.0 sec"
         ),
         CookieEntity(
             name = "Pomegranate Cookie",
@@ -1072,12 +1102,13 @@ object DefaultCookieList {
             type = SUPPORT,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Even dark spells can become a formidable ally! The Cookie's crimson magic applies a buff restoring some HP over time for the whole squad and increases Attack Power.",
+            skill = "Pomegranate Magic",
+            gameDescription = "Dressed in her scarlet ceremonial attire with glittering pomegranate drop decorations, Pomegranate Cookie was raised in the lands of powerful sorcerers as a young priestess to the Sacred Pomegranate Tree. But when she was foretold to follow a great darkness, she started to doubt her upbringing. When an unstoppable dark force overran her homeland, Pomegranate Cookie already knew she had met her destiny, and gladly joined her mysterious new Master..",
+            quote = "For my Master!",
+            cooldown = 15,
+            skillStats = "Healing: 16.0% of ATK every 1.0 sec over 5.0 sec (+0.22% Healing per level)\n" +
+                    "+30.0% ATK for 7.0 sec"
         ),
         CookieEntity(
             name = "Almond Cookie",
@@ -1090,12 +1121,13 @@ object DefaultCookieList {
             type = SUPPORT,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skill = "Almond Handcuffs",
+            skillDesc = "Uses magical handcuffs to apprehend the enemy with the lowest max HP and apply the Damage Link Debuff, which disperses a portion of damage the apprehended enemy receives between up to five linked enemies. Cannot be interrupted. (Handcuffs cannot be applied to summoned foes.)",
+            gameDescription = "Pristine coat. Perfect shirt. Combed hair. He always starts his day fresh, prim, and proper. But it never lasts long... After being dispatched to spells gone awry from alley to alley, it looks as if Almond Cookie has been on the job for days on end without a single break. If it isn't an enchanted grimoire moving on its own, it's some magical cauldron spewing Jellies without pause. Despite the chaos on every scene, the veteran detective solves each case by the book with pinpoint precision. The almonds in his dough give him a hardy, rough and tough crisp that can withstand just about anything thrown at him, but he's overworked to the point that his dough no longer contains the rich scent of almonds. \"Can't even get a coffee break,\" he sighs as another magical mishap needs his attention. With his coat fluttering in the wind, Almond Cookie looks upon his city and vows to keep going at it until he can finally relax with a decent coffee.",
+            quote = "Let's start from the beginning.",
+            cooldown =15 ,
+            skillStats = "Damage Link: 70% (+0.6% DMG per level)\n" +
+                    "Duration: 3.0 sec"
         ),
         CookieEntity(
             name = "Cream Puff Cookie",
@@ -1108,12 +1140,15 @@ object DefaultCookieList {
             type = SUPPORT,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Conjures a tornado of Jellies over a large area, causing area damage and restoring the party's HP. The spell cannot cause CRIT DMG, but instead, there is a chance to conjure it with great success depending on the CRIT%. Cast with great success, the spell will inflict greater DMG and heal a greater amount of HP. While Cream Puff Cookie is using her skill, she will briefly become resistant to interrupting effects.",
+            skill = "Jellius Extremus!",
+            gameDescription = "Sweet Cream Puff Cookie makes you feel delighted just by looking at her. Made of soft and delicate cream puff, this cookie is as fragile as can be. Something always makes you worry about her, but it's certain that great power sleeps within her. Cream Puff Cookie used to study magic on her own, but now she is a graduate of a prestigious Magic Academy! Will Cream Puff Cookie be able to become a famous wizard? Let's find out!",
+            quote = "I'm a real wizard now!",
+            cooldown = 16,
+            skillStats = "Single hit DMG: 469.5% (0.4-0.5% DMG per level),\n" +
+                    "Success: 1166.8% (1.1-1.2% DMG per level)\n" +
+                    "Healing: 103.5% of ATK (0.1-0.2% Healing per level),\n" +
+                    "Success: 238.6% of ATK (0.2-0.3% Healing per level)"
         ),
         CookieEntity(
             name = "Fig Cookie",
@@ -1126,12 +1161,13 @@ object DefaultCookieList {
             type = SUPPORT,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "The sound of Fig Cookie's Jelly Horn summons a flock of angered Fig Birds that swarm at the enemies, dealing damage. Surprised by this sudden attack, the enemies suffer from reduced ATK.",
+            skill = "Jelly Horn",
+            gameDescription = "If you ever go for a forest picnic on a bright sunny day when the fragrant wind caresses your cheeks, the curious Fig Cookie may shyly appear from behind the leaves! This Cookie is known to have dwelled in verdant forests of light and honey for a long, long time. Year after year, the forest awakens at the cheerful sound of Fig Cookie's Jelly Horn, and the brightest of flowers become more colorful and lively than ever. When Fig Cookie shares tales as old as the forest itself, animal friends gather around and listen intently. Prancing about to and fro, the Cookie sometimes ventures to the very edge of the forest to play and run with other Cookies.",
+            quote = "Let's prance! An jump! An dance!",
+            cooldown =15,
+            skillStats = "Single hit damage: 221.0% (+2.45% DMG per level)\n" +
+                    "-25.0% ATK for 7.0 sec"
         ),
         CookieEntity(
             name = "Lilac Cookie",
@@ -1144,12 +1180,14 @@ object DefaultCookieList {
             type = SUPPORT,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Lilac Cookie throws his chakrams in several rounds over a period of time. Friendly units are impressed by the graceful movements, and gain increased regular attack DMG proportional to their ATK SPD boost rate.",
+            skill = "Jelly Horn",
+            gameDescription = "Lilac petals are known as one of the core ingredients of the love potion. Finely sliced fragments of these petals were sprinkled into the dough and baked under the scorching desert sun. Lilac Cookie treads behind the veil of darkness only to appear with a gust of petals, mere moments before his unsuspecting foes take their final breath. Luring his targets with an irresistible fragrance, Lilac Cookie swiftly sends them to their end with his razor-sharp chakrams, leaving neither footprints nor a sound. The only remnants of his presence are but a few purple petals on the ground... and the lingering, yet soothing scent of lilac in the air.",
+            quote = "Those who sense my scent... Never leave alive.",
+            cooldown =13,
+            skillStats = "Ranged attack: 10.0 sec\n" +
+                    "Single hit DMG: 105.0% (+1.45% DMG per level)\n" +
+                    "CRegular attack DMG increase: Inflict extra damage equal to 0.4% of the Cookie's ATK for each 1.0% of ATK SPD boost rate for 10.0 sec"
         ),
         CookieEntity(
             name = "Parfait Cookie",
@@ -1162,12 +1200,14 @@ object DefaultCookieList {
             type = SUPPORT,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Grabs the microphone and belts her heart out. Touched by the earnest and sincere song, all allies will recover some HP and receive a buff that increases DEF and resistance to debuffs.",
+            skill = "Paru-Paru-Parfait!",
+            gameDescription = "In a time when there's never a day without a new hot celebrity idol, this singer-songwriter Cookie desperately tries to stick out with sweet toppings in vivid colors! Parfait Cookie's distinct style involves layers of chocolate and candy, topped with dripping syrup. Despite still being a rookie, this Cookie already has dozens of self-written songs. Parfait Cookie's melodies may be just as creative and unique as her colorful mixture of toppings, but her lyrics are always as pure and honest as vanilla ice cream. \"It doesn't matter if the audition goes bad, if no one recognizes me, or even if my toppings melt in the summer rain! I keep playing my guitar and sing about the truth in my heart.\"",
+            quote = "Pretty toppings, sweet and lovely! I'm Parfait Cookie, and don't you forget it!",
+            cooldown = 17,
+            skillStats = "Healing: 14.4% of ATK every 1.0 sec over 7.0 sec (+0.2% Healing per level)\n" +
+                    "+10.0% DEF for 7.0 sec\n" +
+                    "Debuff Resist Up: +40.0% for 7.0 sec"
         ),
         CookieEntity(
             name = "Cotton Cookie",
@@ -1180,12 +1220,15 @@ object DefaultCookieList {
             type = SUPPORT,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "While Cotton Cookie's lantern shines, the warm light will periodically restore the allies' HP and increase the summoned creatures' ATK. Additionally, Cotton Cookie summons sheep that will charge at the enemies, dealing area damage and stunning them. The summoned sheep will fight alongside the Cookies for a certain time.",
+            skill = "A Warm Light",
+            gameDescription = "The soft and warm cotton fluff in Cotton Cookie's dough granted her a heart so warm not even a raging blizzard could scare her off. The way she handles her flock of cute wooly sheep ever so gently with her tiny lantern in hand can make anyone feel at peace! Having a lantern in Cotton Cookie's land of constant snowfall is very important: not only stray sheep but also Cookies lost among the dreary white hills depend on it. Cotton Cookie can often be seen restlessly looking at the sky on snowy days—as though expecting to find something amidst the drifting snowflakes. Sometimes, she mentions a Cookie dear to her: her serene, calm face lightens up, making the listener wonder... what happened? Will we ever learn that someone out there is keeping a piece of these snowy plains in their heart? And that a warm yellow light of the tiny lantern will always shine for that special someone. Always.",
+            quote = "I hope this light will reach all corners of this land...",
+            cooldown = 17,
+            skillStats = "Healing: 9.9% of ATK every 1.0 sec for 9.0 sec (+0.08% per level)\n" +
+                    "ATK Increase: 75% while the lantern is lit\n" +
+                    "Sheep Herd: 124.5% of the Cookie's ATK, 157.8% of DEF, 111.4% of HP\n" +
+                    "Sheep Stampede: 150.0% DMG, stuns for 1.0 sec"
         ),
         CookieEntity(
             name = "Eclair Cookie",
@@ -1198,12 +1241,15 @@ object DefaultCookieList {
             type = SUPPORT,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "With all the knowledge and research accumulated over the years, analyzes and identifies the opponent's weakness. Casts 'Weakness' debuff to 3 enemies with the highest ATK (targets Cookies first), amplifying the DMG they receive, and deals DMG. If the enemy is defeated while under the Weakness debuff, all allies gain an HP shield",
+            skill = "Book of History",
+            gameDescription = "When you're looking around the museum, taking a look at the ancient relics that hold mysteries and stories untold, it feels as if the whole world has grown peaceful and silent. That's usually when the curator of this museum will approach you with a gentle and kind greeting. Eclair Cookie, at your service! With an entire dessert covered in premium fondant icing adorning his hat, he'll greet guests of the museum with elegance and grace, all while making sure there's no trace of dust to be found. But it must be said that he tends to go overboard with his explanations whenever a guest shows interest in his favorite topic: dragon-fighter Cookies! Which is precisely why he's mostly seen in his office, writing reports on these brave and heroic dragon-fighter Cookies. He may be sitting in front of his desk, but do not underestimate his scholarly heart—for his passion for history burns bright as any other adventurer exploring this world.",
+            quote = "Ah, have you brought me a relic? Come now, let me take a look!",
+            cooldown = 16,
+            skillStats = "Weakness: receive +25.0% DMG for 40.0 sec, the effect stacks up to x4\n" +
+                    "HP Shield: +25.0% of Max HP for 3.0 sec\n" +
+                    "Single hit DMG: 480.6% (+6.54% DMG per level)\n" +
+                    "Weakness debuff is refreshed by its further stacks: one stack's duration is 10 sec, two stacks will extend it by 8 sec."
         ),
         CookieEntity(
             name = "Herb Cookie",
@@ -1216,12 +1262,14 @@ object DefaultCookieList {
             type = HEALING,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Turns the ground into a wonderful little garden, removing all debuffs and restoring some HP for the whole party. Standing near sprouts also restores some HP over time.",
+            skill = "Sunny Garden",
+            gameDescription = "Warm like the sunshine and fresh like the scent of rain, Herb Cookie will ease your mind when you're feeling down. Made of fresh green herbs, this Cookie may not be to everyone's taste. On rainy days, Herb Cookie loves to listen to the sound of falling raindrops under his trusty leaf umbrella. On warm days, he enjoys the sunshine together with his favorite plants. This Cookie treats all living things and every moment as precious. He believes that the little things that make you laugh or cry are to be cherished, just like a ray of sunshine after the rain.",
+            quote = "Hello there! Welcome to my garden.",
+            cooldown = 17,
+            skillStats = "Healing: 44.2% of ATK (+0.05% Healing per level)\n" +
+                    "Healing: 9.0% (+0.24~0.25% for each tick of Healing per level) every 1.0 sec over 5 sec when standing near sprouts\n" +
+                    "Purify: all debuff effects"
         ),
         CookieEntity(
             name = "Sparkling Cookie",
@@ -1234,12 +1282,13 @@ object DefaultCookieList {
             type = SUPPORT,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Throws refreshing healing cocktails at two allies with the lowest HP. The cocktail's divine aroma raises the whole squad's morale, increasing their Critical Strike Chance",
+            skill = "Sparkling Cocktail",
+            gameDescription = "This is the day! You have received an invitation to the famous Sparkling Party. Sparkling Cookie greets you personally with a dazzling smile and offers a glass of Sparkling Juice. All the guests are fascinated with his impeccable manners and looks: his boyish rolled up sleeves and bouncy bubble hair. It is going to be the best holiday party ever!",
+            quote = "Have a glass! It's on me.",
+            cooldown = 13,
+            skillStats = "Healing: 139% of ATK (+1.8~1.9% per level)\n" +
+                    "+25.0% CRIT% for 7.0 sec"
         ),
         CookieEntity(
             name = "Pure Vanilla Cookie",
@@ -1252,12 +1301,13 @@ object DefaultCookieList {
             type = HEALING,
             position = REAR,
             rarity = ANCIENT,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skill = "Love & Peace",
+            skillDesc = "Illuminates the Battlefield with his Vanilla Orchid Staff, replenishing the party's HP and covering them with shields absorbing an amount of damage proportional to their HP.",
+            gameDescription = "There are not many Cookies on Earthbread who could inspire hope as Pure Vanilla Cookie did. Born from nature-blessed cream and a fragrant vanilla bean, he was the epitome of Cookie kindness and faithfulness. Pure Vanilla Cookie strived to forgive the wrongdoer and heal the wounds of Cookies and animals alike. Though a powerful wielder of magic, he would use his spells not for his own good, but for the good of everyone. The Cookie took an arduous pilgrimage down the Sugar-Free Road. What Pure Vanilla Cookie learned through the Trials is unknown, but crowned with a bright halo of light he returned to found the Vanilla Kingdom, a land of freedom and learning, and a beacon for those seeking love and peace. Pure Vanilla Cookie stood by his friends until the very end, warding off the Darkness with a heartfelt smile",
+            quote = "The truth always prevails!",
+            cooldown = 19,
+            skillStats = "Healing: 99.4% of ATK (+1.5% of ATK per level)\n" +
+                    "Shield: absorbs 20.0% of max HP for 3.0 sec"
         ),
         CookieEntity(
             name = "Hollyberry Cookie",
@@ -1270,12 +1320,13 @@ object DefaultCookieList {
             type = CHARGE,
             position = FRONT,
             rarity = ANCIENT,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Let out a war cry of fury! Hollyberry Cookie charges forward and becomes a shield to all of her Cookie allies, absorbing a portion of the damage they take, excluding continuous DMG and indirect DMG. While Hollyberry Cookie is using her skill, she will briefly become resistant to interrupting effects.",
+            skill = "Oath on the Shield",
+            gameDescription = "What else could result in such an overwhelming passion if not the reddest hollyberries, ripened under the hottest summer sunlight? Hollyberry Cookie believes that every friendship, like every victory, should be triumphant. After all, there is nothing in the world as hard as trust! Not even the all-enduring Hollyberry Shield with which she swore to protect her beloved ones. It is said that Hollyberry Cookie leading a charge onto the battlefield is the most inspiring view. A view that inspires to repay with trust to those who put trust in you.",
+            quote = "Blow the horn! Hollyberry Cookie has arrived!",
+            cooldown = 18,
+            skillStats = "Single hit DMG: 185.5% (+2.53% DMG per level)\n" +
+                    "DMG Focus: 20.0% of DMG of allies for 9.0 sec"
         ),
         CookieEntity(
             name = "Dark Cacao Cookie",
@@ -1288,12 +1339,18 @@ object DefaultCookieList {
             type = HEALING,
             position = REAR,
             rarity = ANCIENT,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Swings the Grapejam Chocoblade with great force, causing thunder and lighting to inflict damage upon foes in range. This mighty attack reduces enemies' ATK, DEF and inflicts Zap and Injury. Injured foes will have reduced Max HP, and the injury debuff ignores immunity and dispelling effects not mentioning Injury specifically. While Dark Cacao Cookie is using his skill, he will briefly become resistant to interrupting effects.",
+            skill = "Solemn Judgment",
+            gameDescription = "The last bean, devoid of any sweetness, fell down from a withered branch of a lonely cacao tree growing above the edge of a cliff. Lying there in frozen soil, enduring snow and wind, this bean wasn't aware of its destiny to become the main ingredient for the cold and reclusive Dark Cacao Cookie. A warrior of unheard strength, Dark Cacao Cookie wielded the Grapejam Chocoblade. This sword was so heavy it required three average Cookies to even budge it. With each swing, the skies erupted into thunder and lightning, avalanches tumbled down countless mountains. Dark Cacao Cookie was known as a Cookie of few words but great principle. After the Dark Flour War's sorrowful events, the warrior locked himself away in the solitude of his own castle.... Will anything be able to melt his frozen soul once again?",
+            quote = "Great strength leads to bitter consequences…",
+            cooldown = 16,
+            skillStats = "First hit DMG: 46.9% (+0.64% DMG per level)\n" +
+                    "Second hit DMG: 265.8% (+3.62% DMG per level)\n" +
+                    "Passive: Debuff Resist +20.0%\n" +
+                    "-15.0% DEF for 9.0 sec\n" +
+                    "-10.8% ATK for 9.0 sec\n" +
+                    "Injury: 12.5% Max HP Reduction for 30.0 sec (from the start of the battle), Injury limit up to 25%\n" +
+                    "Zap: 3.0% DMG every 1.0 sec for 9.0 sec. Nullifies HP shield."
         ),
         CookieEntity(
             name = "Sea Fairy Cookie",
@@ -1306,12 +1363,14 @@ object DefaultCookieList {
             type = BOMBER,
             position = MIDDLE,
             rarity = LEGENDARY,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Fires a stream of water, inflicting damage and stunning 5 closest enemies (targets Cookies first). After a certain time, a full moon-shaped pool of water created underneath the targets bursts up with the power of eternity, dealing heavy damage. (Skill cannot be applied to summoned foes.)",
+            skill = "Soaring Compassion",
+            gameDescription = "Sea Fairy Cookie was frozen under a curse long ago. But perhaps because of her grieving heart, her soul was frozen beyond magic. If it weren't for the warm kindness of our Cookies, she might have chosen to stay frozen forever. Beyond her flowing hair, the twinkle in her eyes still states that she is willing to fight her fate. Let's hope she does not let go of her sword, giving up hope and choosing to turn into sea foam.",
+            quote = "I feel the warmth of your heart...",
+            cooldown = 17,
+            skillStats = "Water Stream DMG: 150.0%\n" +
+                    "Water Pillar DMG: 173.0% (+4.4% DMG per level)\n" +
+                    "Stun: 3.0 sec"
         ),
         CookieEntity(
             name = "Frost Queen Cookie",
@@ -1324,13 +1383,14 @@ object DefaultCookieList {
             type = MAGIC,
             position = MIDDLE,
             rarity = LEGENDARY,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Casts a squall of freezing energy dealing damage and freezing all enemies. Once Frozen, the targets' Cooldown will be paused and will receive an additional portion of damage when thawed. If the Freeze debuff is dispelled, the targets will not receive the additional damage. Frost Queen Cookie herself is immune to freezing. While Frost Queen Cookie is using her skill, she will briefly become resistant to interrupting effects.",
+            skill = "Freezing Squall",
+            gameDescription = "Somewhere amidst endless snow stands the lone castle of ice. In its halls of perpetual twilight dwells Frost Queen Cookie, the sovereign of winter itself. Like a fairytale queen, she dazzles with regal magnificence, yet her icy gaze leaves your soul cold and dreary, like tundra after a relentless blizzard. Her Cookie heart with all its mortal hopes and passions is long but frozen, all but one: her adamant will to accomplish her mission. A mission of utmost importance to the existence of the world. Ages might pass, but the castle of ice will remain: and so will Frost Queen Cookie, the guide for the myriads of Life-bearing snowflakes",
+            quote = "You cannot defy the cycle of life.",
+            cooldown = 18,
+            skillStats = "Single hit DMG: 67.8% (+0.92% DMG per level)\n" +
+                    "Freeze Time: 2.0 sec\n" +
+                    "Freeze DMG: 271.2% of ATK (+3.69% DMG per level)"
         ),
-
     )
 }

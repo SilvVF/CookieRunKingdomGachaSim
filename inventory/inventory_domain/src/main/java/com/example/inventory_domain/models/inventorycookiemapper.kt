@@ -40,7 +40,7 @@ fun CookieEntity.toInventoryCookie(): InventoryCookie {
 fun CookieEntity.toInfoCookie(): InfoCookie {
     return InfoCookie(
         name = name,
-        cookieInfoImage = cookieFullArt,
+        cookieFullArt = cookieFullArt,
         type = Type.fromString(type),
         rarity = Rarity.fromString(rarity),
         position = Position.fromString(this.position),
@@ -49,6 +49,8 @@ fun CookieEntity.toInfoCookie(): InfoCookie {
         skill = skill,
         skillIcon = skillIcon,
         quote = quote,
-        headIcon = cookieFaceIcon
+        headIcon = cookieFaceIcon,
+        skillStats = skillStats,
+        skillCooldown = cooldown
     )
 }

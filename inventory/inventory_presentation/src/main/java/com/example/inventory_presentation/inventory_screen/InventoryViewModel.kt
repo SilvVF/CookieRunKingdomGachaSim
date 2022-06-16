@@ -28,22 +28,11 @@ class InventoryViewModel @Inject constructor(
         }
     }
 
-    fun onEvent(event: InventoryScreenEvent) {
-        when (event) {
-            is InventoryScreenEvent.OnBackPressed -> {
-
-            }
-            is InventoryScreenEvent.OnCookieClick -> {
-
-            }
-        }
-    }
 
     fun refreshList() = viewModelScope.launch {
             state = state.copy(
                 cookieList = inventoryUseCases.getAllCookiesFromDb()
             )
     }
-
 }
 
