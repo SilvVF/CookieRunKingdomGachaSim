@@ -6,10 +6,9 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -45,20 +44,20 @@ fun InventoryScreen(
             modifier = Modifier.fillMaxSize()
         )
         Column {
-            TopAppBar {
-                    Button(
-                        onClick = { onNavigateToGacha() },
-                        modifier = Modifier
-                            .fillMaxWidth(0.25f),
-                        colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFFFC904))
-                    ) {
-                        Text(
-                            text = stringResource(id = com.example.core.R.string.gacha),
-                            color = Color.White
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(25.dp))
-                    Text(text = stringResource(id = com.example.core.R.string.my_cookies))
+            TopAppBar (backgroundColor = Color(0xFF604F41)){
+                IconButton(
+                    onClick = {
+                        onNavigateToGacha()
+                    },
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = null,
+                        tint = Color.White
+                    )
+                }
+                Text(text = stringResource(id = com.example.core.R.string.gacha))
+                Spacer(modifier = Modifier.width(25.dp))
             }
             LazyColumn(
                 modifier = Modifier

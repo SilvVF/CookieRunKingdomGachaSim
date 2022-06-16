@@ -48,7 +48,11 @@ fun GachaScreen(
                 imageId = currPopup.second,
                 cookieName = currPopup.first,
                 onDismiss = {
-                    if (popups.value.hasNext()) currPopup = popups.value.next().toPair()
+                    if (popups.value.hasNext())  try {
+                        currPopup = popups.value.next().toPair()
+                    } catch (e: Exception) {
+                        viewModel.onEvent(GachaScreenEvent.OnDismissPopupScreen)
+                    }
                     else viewModel.onEvent(GachaScreenEvent.OnDismissPopupScreen)
                 },
                 modifier = Modifier

@@ -70,8 +70,10 @@ class MainActivity : ComponentActivity() {
                             )
                         ) { backStackEntry ->
                             backStackEntry
-                                .arguments?.getString("cookieName")?.let {
-                                        it -> CookieScreen(cookieName = it)
+                                .arguments?.getString("cookieName")?.let { it ->
+                                    CookieScreen(cookieName = it){
+                                            navController.popBackStack()
+                                    }
                                 }
                         }
                     }
