@@ -68,14 +68,14 @@ class PerformCookieGacha(
         when ((0..1000).random()) {
             in (0..301) ->  {
                 when (ancientOrLegendary) {
-                    is Rarity.Ancient -> updateCookieSoulStone(ancientList.random())
-                    else -> updateCookieSoulStone(legendaryList.random())
+                    is Rarity.Ancient -> updateFullCookie(ancientList.random())
+                    else -> updateFullCookie(legendaryList.random())
                 }
             }
             else -> {
                 when (ancientOrLegendary) {
-                    is Rarity.Ancient -> updateFullCookie(ancientList.random())
-                    else -> updateFullCookie(legendaryList.random())
+                    is Rarity.Ancient -> updateCookieSoulStone(ancientList.random())
+                    else -> updateCookieSoulStone(legendaryList.random())
                 }
             }
         }
