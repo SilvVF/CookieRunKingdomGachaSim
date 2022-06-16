@@ -26,4 +26,5 @@ class InventoryRepositoryImpl(
     override suspend fun getCookieById(id: Int): InventoryCookie {
         return cookieDao.getCookieById(id).toInventoryCookie()
     }
+
 }

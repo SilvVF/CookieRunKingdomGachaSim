@@ -50,11 +50,14 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(route = Route.INVENTORY) {
-                            InventoryScreen { cookieName ->
-                                navController.navigate(
-                                    Route.COOKIE_DETAIL + "/$cookieName"
-                                )
-                            }
+                            InventoryScreen (
+                                onCookieSelected = { cookieName ->
+                                    navController.navigate(
+                                        Route.COOKIE_DETAIL + "/$cookieName"
+                                    )
+                                },
+                                onNavigateToGacha = { navController.navigate(Route.GACHA) }
+                            )
                         }
                         composable(
                             route = Route.COOKIE_DETAIL + "/{cookieName}",
@@ -67,8 +70,10 @@ class MainActivity : ComponentActivity() {
                             )
                         ) { backStackEntry ->
                             backStackEntry
-                                .arguments?.getString("cookieName")?.let {
-                                        it -> CookieScreen(cookieName = it)
+                                .arguments?.getString("cookieName")?.let { it ->
+                                    CookieScreen(cookieName = it){
+                                            navController.popBackStack()
+                                    }
                                 }
                         }
                     }

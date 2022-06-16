@@ -31,7 +31,9 @@ class CookieScreenViewModel @Inject constructor(
         "",
         "",
         com.example.core.R.drawable.cookie_cutter,
-        ""
+        "",
+        "",
+        0
     )
     var state by mutableStateOf(CookieScreenState(defaultCookie))
 
