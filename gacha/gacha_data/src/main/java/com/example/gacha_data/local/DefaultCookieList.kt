@@ -17,6 +17,7 @@ import com.example.core.util.CookieConstants.MIDDLE
 import com.example.core.util.CookieConstants.RANGED
 import com.example.core.util.CookieConstants.RARE
 import com.example.core.util.CookieConstants.REAR
+import com.example.core.util.CookieConstants.SUPER_EPIC
 import com.example.core.util.CookieConstants.SUPPORT
 
 object DefaultCookieList {
@@ -1391,6 +1392,92 @@ object DefaultCookieList {
             skillStats = "Single hit DMG: 67.8% (+0.92% DMG per level)\n" +
                     "Freeze Time: 2.0 sec\n" +
                     "Freeze DMG: 271.2% of ATK (+3.69% DMG per level)"
+        ),
+        CookieEntity(
+            name = "Muscle Cookie",
+            soulStoneCount = 0,
+            soulStoneImage = R.drawable.muscle_soulstone,
+            cookieCard = R.drawable.muscle_card,
+            cookieFaceIcon = R.drawable.muscle_face_icon,
+            cookieFullArt = R.drawable.muscle_cookie_full_art,
+            skillIcon = R.drawable.muscle_skill,
+            type = CHARGE,
+            position = FRONT,
+            rarity = COMMON,
+            skillDesc = "Throws a dumbbell with fearsome strength at the nearby enemies, causing Shock within the radius when throwing and when the dumbbell falls.",
+            skill = "Freezing Squall",
+            gameDescription = "Muscle Cookie's recipe requires large quantities of protein powder and about three weeks of intensive kneading. Only after that, the taste of raw muscle power comes to life. Such a rigorous cooking process has made Muscle Cookie a bit short-tempered. He tends to throw exercise equipment when angry. But don't be afraid: once he's done dealing with Cake Monsters, he's as cool as a cucumber.",
+            quote = "Gosh, do you even lift?",
+            cooldown = 18,
+            skillStats = "10 second base Cooldown\n" +
+                    "Damage dealt: 81.0% base damage (+1.1% DMG per level)"
+        ),
+        CookieEntity(
+            name = "Cherry Cookie",
+            soulStoneCount = 0,
+            soulStoneImage = R.drawable.cherry_rare_soulstone,
+            cookieCard = R.drawable.cherry_rare_card,
+            cookieFaceIcon = R.drawable.cherry_rare_face_icon,
+            cookieFullArt = R.drawable.cherry_rare_full_art,
+            skillIcon = R.drawable.cherry_rare_skill,
+            type = BOMBER,
+            position = REAR,
+            rarity = RARE,
+            skillDesc = "A giant cherry bomb causes area damage and stuns enemies.",
+            skill = "Huge Cherry Bomb",
+            gameDescription = "Behind her endearing smile and adorable looks, Cherry Cookie hides a destructive nature. A real troublemaker decorated with bright red cherry syrup, she enjoys pulling destructive pranks. She especially enjoys throwing her Cherry Bombs, which explode like fireworks. Believe it or not, the sweet, invigorating smell of cherry black powder in the air can blow any stress away!",
+            quote = "Here goes my Cherry Bomb! Boom! BOOM!",
+            cooldown = 16,
+            skillStats = "Damage dealt: 146.0% base (+2% DMG per level)\n" +
+                    "Stun: 2.0 sec"
+        ),
+        CookieEntity(
+            name = "Clotted Cream Cookie",
+            soulStoneCount = 0,
+            soulStoneImage = R.drawable.clotted_soulstone,
+            cookieCard = R.drawable.clotted_card,
+            cookieFaceIcon = R.drawable.clotted_face_icon,
+            cookieFullArt = R.drawable.clotted_full_art,
+            skillIcon = R.drawable.clotted_skill,
+            type = MAGIC,
+            position = MIDDLE,
+            rarity = SUPER_EPIC,
+            skillDesc = "The Cloak of Light, a marvel of the Republic's cutting-edge technology, provides unquestionable advantages in battle. Upon using his skill, Clotted Cream Cookie projects the Light Cage onto the nearest enemy (targets Cookies first), blocking buffs and dealing area damage. The Light Cage cannot be dispelled and can be projected onto Cookies resistant to interrupting effects and prevents them from receiving removable buffs. The Light Cage will also inflict extra damage relative to the target's HP at the end of its duration. While Clotted Cream Cookie is using his skill, he will become resistant to interrupting effects. (DMG relative to Max HP is capped at 300,000)",
+            skill = "Consul's Orders",
+            gameDescription = "Impeccable posture, perfect necktie knot, and a charming smile! Add a generous amount of filling: a mixture of cream, ambition, and respectability, and you will get the Republic's youngest Consul ever. Clotted Cream Cookie's first achievement in office was the consolidation of the Republic's fractured society. Even the Elders, whose authority in the city-state is unquestionable, recognize the Consul's brilliance and eloquence. Indeed, Clotted Cream Cookie's approval rating and influence are growing by the day! But beware: each of his sweet smiles is thoroughly calculated. This Cookie is always on the winning side.",
+            quote = "My name is Clotted Cream Cookie, elected Consul of the Crème Republic.",
+            cooldown = 15,
+            skillStats = "Total Periodic DMG: 308.5% (+4.2% per level), 22 ticks for 1.4 sec\n" +
+                    "Debuff Light Cage DMG: 189.0%\n" +
+                    "Light Cage duration: 4.8 sec\n" +
+                    "Cage extra DMG:\n" +
+                    "Cookies: 89.9% DMG relative to Max HP + 20.0% fixed DMG relative to Max HP, Stun for 1.3 sec\n" +
+                    "Others: 1.3% DMG relative to Max HP + 146.9% DMG (+1.8~1.9% per level), Stun for 1.3 sec\n" +
+                    "+17.5% DMG Resist over 8.0 sec"
+        ),
+        CookieEntity(
+            name = "Oyster Cookie",
+            soulStoneCount = 0,
+            soulStoneImage = R.drawable.oyster_soulstone,
+            cookieCard = R.drawable.oyster_card,
+            cookieFaceIcon = R.drawable.oyster_face_icon,
+            cookieFullArt = R.drawable.oyster_full_art,
+            skillIcon = R.drawable.oyster_skill,
+            type = SUPPORT,
+            position = REAR,
+            rarity = SUPER_EPIC,
+            skillDesc = "Summons soldiers of House Oyster and increases the CRIT% and CRIT DMG for herself and nearby allies for a certain amount of time. The summoned soldiers will immediately charge at the enemies, dealing damage. The soldiers will have extra DEF until the HP of their shields hits zero. Their shields will also resist Knockbacks and Flying. When Oyster Cookie receives a cooldown reduction buff, instead of cooldown reduction, the number of Oyster Soldiers and their ATK will increase.",
+            skill = "Might of House Oyster",
+            gameDescription = "Massive merchant vessels with mermaid statues adorning the stemhead fill the docks of the Creme Republic, all waiting for Oyster Cookie's command. All it takes is one single wave to signal the giant ships to cross the ocean and create new tides. With her noble allure and eloquent words that can steer the conversation the way she wishes, one can't help but be in awe of Oyster Cookie's presence. Some Cookies wonder how a Cookie of the Sea could achieve such fame and prestige among the Republic's crème de la crème. One theory is that House Oyster is somehow connected to the underwater mermaids from the old legends, but no one knows the truth. Oyster Cookie is known to exert her power and influence to create a favorable tide whenever precious goods and valuable information are involved. Perhaps that's why the ambitious come knocking at Manor Oyster's doors. Because some offers are worth risking it all!",
+            quote = "I believe that no further introduction is required.",
+            cooldown = 17,
+            skillStats = "Soldiers' Charge DMG: 94.0%\n" +
+                    "Oyster Soldiers: caster's 42.9% ATK, 179.0% DEF, 118.0% HP\n" +
+                    "Additional Soldiers: get an extra Oyster Soldier for every -18.1% to Cooldown (up to 4 Oyster Soldiers in total)\n" +
+                    "Soldiers' ATK: get +0.9% ATK for every -1.0% to Cooldown (up to +50.0% ATK)\n" +
+                    "Soldiers' Shield: 60.0% of Oyster Soldiers' HP, DEF +30.0%, resistance to Knockback and Flying\n" +
+                    "CRIT Boost: 16.5% for 17.0 sec\n" +
+                    "CRIT DMG Boost: 13.0% for 17.0 sec"
         ),
     )
 }
