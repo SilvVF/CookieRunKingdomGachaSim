@@ -87,10 +87,10 @@ class GachaScreenViewModel @Inject constructor(
         currentCookiePopup.clear()
         val res = mutableListOf(gachaUseCases.performCookieGacha().onEach { cookie  ->
             if (cookie.isFullCookie &&
-                cookie.rarity == Rarity.Epic ||
+                (cookie.rarity == Rarity.Epic ||
                 cookie.rarity == Rarity.Ancient ||
                 cookie.rarity == Rarity.SuperEpic ||
-                cookie.rarity == Rarity.Legendary
+                cookie.rarity == Rarity.Legendary)
             ) {
                 currentCookiePopup[cookie.name] = cookie.cookieImageAnimated
             }

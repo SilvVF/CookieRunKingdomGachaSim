@@ -57,7 +57,7 @@ fun CookieScreen(
         LazyColumn(
             Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.9f)
+                .fillMaxHeight()
                 .background(Color(0xffD3C3B5))
         ) {
             item {

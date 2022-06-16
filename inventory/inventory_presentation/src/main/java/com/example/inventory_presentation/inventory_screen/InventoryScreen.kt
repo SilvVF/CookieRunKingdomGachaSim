@@ -61,7 +61,7 @@ fun InventoryScreen(
             }
             LazyColumn(
                 modifier = Modifier
-                    .fillMaxHeight(0.9f)
+                    .fillMaxHeight()
                     .fillMaxWidth()
             ) {
                 items(state.cookieList.size / 3) {
