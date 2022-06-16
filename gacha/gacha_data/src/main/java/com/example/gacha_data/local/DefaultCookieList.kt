@@ -508,12 +508,15 @@ object DefaultCookieList {
             type = CHARGE,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Strikes the ground with her mace, rupturing it and dealing area damage. Spicy Mala Sauce lava will erupt from the crack and apply the Burn debuff dealing periodic damage to the enemies. In addition, this skill increases CRIT% of the two allies with the highest CRIT% stat.",
+            skill = "Spicy Mala Strike",
+            gameDescription = "The blistering heat of the Dragon's Valley seems inhospitable to all forms of life. That is... until you get to know the spicy Cookies of the Mala Tribe. The entire tribe is unyieldingly spicy, but none come close to Mala Sauce Cookie with her mind-numbing, fiery taste! Her strength knows no bounds: a simple tap on a boulder shatter it to pieces, a full swing of her Morning Star Anise triggers a massive whirlwind. Due to her fierce determination to protect the tribe, she was the only cookie who succeeded in the dreaded Trial of the Dragon. It's no wonder that she is destined to be the future leader! Despite the twists and turns with her first adventure outside of the village, if she can captivate the spicy denizens of the Mala Tribe, the outside world doesn't stand a chance!",
+            quote = "Time to spice things up!",
+            cooldown = 15,
+            skillStats = "+25.0% CRIT% for 8.0 sec\n" +
+                    "Mace DMG: 9.0% (+0.1-0.2% DMG per level)\n" +
+                    "Lava Burst DMG: 15.7% (+0.2-0.3% DMG per level)\n" +
+                    "Burn: 27.6% DMG every 0.5 sec for 6 sec (+0.3-0.4% DMG per level)"
         ),
         CookieEntity(
             name = "Tea Knight Cookie",
@@ -526,12 +529,16 @@ object DefaultCookieList {
             type = CHARGE,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Inflicts damage to the nearest enemy (targets Cookies first) and leads the battle on, providing a buff for his allies. There are several kinds of available buffs; each kind is applied to the Cookie meeting the required conditions. Whenever an allied Cookie is defeated, the Wrath of the Commander effect is triggered. Wrath of the Commander cannot be dispelled and stacks up to four times. At maximum stacks, Tea Knight Cookie will become resistant to interrupting effects.",
+            skill = "Battlemaster",
+            gameDescription = "There was a time when dreadful dragons ruled the skies. Their fire ravaged entire kingdoms, and their claws crumbled countless Cookies. An order of knight in shiny silver armor, infused with courage and battle prowess, swore to put an end to this threat. Led by Tea Knight Cookie, the knights courageously opposed the gargantuan monsters through fire and jam an remained in history. But even the most fragrant tea loses its aroma--with time, the glorious tale of the knight became a legend, a mere echo of the past. Tea Knight Cookie, the fearless hero, was forgotten by those he strove to protect. Now sadness and regret shadow his scar-ridden face. Perhaps he wanted to be forgotten...? Yet... when he reminisces the battles he fought side by side with his comrades of old, a spark lights up in his eyes: the flame within him still burns bright!",
+            quote = "Never forget your oaths, young one.",
+            cooldown = 18,
+            skillStats = "Single hit DMG: 542.4% (+7.38% DMG per level)\n" +
+                    "ATK: +6.0% for the two Cookies with the highest ATK for 8.0 sec\n" +
+                    "CRIT%: +12.0% for the two Cookies with the highest CRIT% for 8.0 sec\n" +
+                    "Per Wrath of the Commander stack: CRK-atkup.png ATK +50.0%, ATK SPD +20.0%\n" +
+                    "Fourth stack: ATK +100.0%,  ATK SPD +150.0%"
         ),
         CookieEntity(
             name = "Crunchy Chip Cookie",
@@ -544,12 +551,17 @@ object DefaultCookieList {
             type = CHARGE,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skill = "Wolf Squadron",
+            skillDesc = "Crunchy Chip Cookie's regular attacks leave the Claw Mark on the enemy with the highest ATK. Upon using the skill, the Cookie charges towards the enemies, slamming them and summoning his Cream Wolf. When Crunchy Chip Cookie is defeated, the Cream Wolf becomes enraged and continues fighting alone. In this state, the Cream Wolf becomes resistant to incapacitating effects. If Crunchy Chip Cookie is revived, he will hop back onto the Cream Wolf. Crunchy Chip Cookie and his wolves are less affected by Knockbacks and Flying.",
+            gameDescription = "One howl is all it takes to prep the Cream Wolves for battle, even in the middle of the night. Led by Crunchy Chip Cookie, this elite squad protects the frozen borders of the Dark Cacao Kingdom. The squad captain may be famous for his quick temper—which is not surprising given the sheer amount of the crunchiest choco chips in his dough—but rest assured: Crunchy Chip Cookie is loyal and reliable, just like his white-maned wolf companion. His oath to his king has kept him and his comrades persevering through piercing winds and snowstorms to ensure the kingdom's safety from the Licorice Sea. No other squadron stands a chance against these ferocious warriors that race through the mountains on the back of their wolves, defeating every monster they come across. Another serene morning in the Dark Cacao Kingdom; perhaps, we have to thank Captain Crunchy Chip Cookie for it!",
+            quote = "Owooo! Guess who's here first! Ha ha!",
+            cooldown = 15,
+            skillStats = "Tamer: receives 25.0% of Summoned Creature buffs\n" +
+                    "Single hit DMG: 88.6% (+1.2% DMG per level) + 185.0% of CRIT%\n" +
+                    "Summoned Wolf: 70.0% of ATK, 60.0% of DEF, 85.0% of HP, 100.0% of CRIT%\n" +
+                    "Tamed Wolf: 102.9% (+1.4% ATK per level) of ATK, 138.0% of DEF, 230.0% of HP, 100.0% of CRIT%\n" +
+                    "Claw Mark: 30.0 sec duration, activated upon 3 stacks\n" +
+                    "Claw Mark: removes buffs, ATK SPD -25.0% for 18.0 sec (stacks up to 2 times), 217.0% DMG"
         ),
         CookieEntity(
             name = "Madeleine Cookie",
@@ -562,12 +574,14 @@ object DefaultCookieList {
             type = DEFENSE,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Calls upon the Celestial Light that allows performing ranged area attacks instead of regular attacks, While under the Celestial Light, Madeleine Cookie receives a buff making him immune to debuffs.",
+            skill = "Commander's Honor",
+            gameDescription = "An offspring of a noble Cookie family from a peaceful republic across the ocean, Madeleine Cookie, armed with his family's influence and shiny new armor, is already the Commander of a knight order. On the day of his Commander's Oathtaking, Madeleine Cookie dedicated himself to the Divine and was granted the Sword and Shield of Radiant Light, which he prizes the most among his numerous possessions. The glorious Knight Commander's usual duties included trotting around the city on his snow-white sugar horse or letting his heavy cape flutter dramatically on the wind during his sparring sessions. Not too long ago, the heroic Madeleine Cookie set on a quest in search of the legendary Jam of Souls capable of granting Cookies eternal life! Will the noble paladin's first campaign bear fruit?",
+            quote = "The Divine smiles upon me!\t",
+            cooldown = 13,
+            skillStats = "Ranged attack: 10.0 sec\n" +
+                    "Immunity for 10.0 sec\n" +
+                    "Single hit DMG: 108.0% (+1.45% DMG per level)"
         ),
         CookieEntity(
             name = "Milk Cookie",
@@ -580,12 +594,14 @@ object DefaultCookieList {
             type = DEFENSE,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Stands at the front line, causing area damage, and taunts the enemies, forcing them to attack himself. While the skill is active, Milk Cookie's Divine Milk Shield decreases incoming damage.",
+            skill = "Noble Sacrifice",
+            gameDescription = "Everything the light touches, let there be peace! Milk Cookie made a divine oath to protect the world from all evil. When raising up the Healing Milk Mace, a splendid glow soars to the skies and bathes the world in light. The forces of evil flee in terror at the sight of the Divine Milk Shield. Milk Cookie has faced many foes, and yet his resolve remains unsullied by corruption and despair. Even on the brink of exhaustion, this selfless and noble protector will cast a blessing of protection for other Cookies first.",
+            quote = "Darkness be gone!",
+            cooldown = 12,
+            skillStats = "-50.0% DMG for 5.0 seconds\n" +
+                    "Damage dealt: 219.0% (+3% DMG per level)\n" +
+                    "Taunt for 5.0 seconds"
         ),
         CookieEntity(
             name = "Strawberry Crepe Cookie",
@@ -598,12 +614,13 @@ object DefaultCookieList {
             type = DEFENSE,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Uses the giant crepe arms to cause area damage. Reduces DMG received by two allies (targets Cookies first) with the lowest Max HP.",
+            skill = "Crepe Thrust",
+            gameDescription = "Sweet strawberry cream, crispy waffles, and chubby fresh strawberries—is there a cuter combination? Meet Strawberry Crepe Cookie with an unyielding sparkle of curiosity in their eyes. And this curiosity is a force to be reckoned with: Strawberry Crepe Cookie will stop at nothing to find an answer to every question! Having grown up with Wafflebots, this Cookie preferred tinkering with robotic parts to playing with toys. This little genius's cute waffle headset is a tiny engineering marvel on its own. But don't touch it! Or you risk witnessing a change from the cute Strawberry Crepe Cookie to the furious one.",
+            quote = "Cookies are too weak. BORING!",
+            cooldown = 15,
+            skillStats = "Single hit damage: 330.0% (+4.1-4.2% DMG per level)\n" +
+                    "+50.0% DMG Resist over 8.0 sec"
         ),
         CookieEntity(
             name = "Moon Rabbit Cookie",
@@ -616,12 +633,16 @@ object DefaultCookieList {
             type = DEFENSE,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skill= "Giant Rice Cake Bunny",
+            skillDesc = "After transforming into a Giant Rice Cake Bunny, Moon Rabbit Cookie jumps up and down, dealing DMG to all enemies. Enemies hit with this skill will be marked with a Healing Rice Cake, and when the marked enemies are defeated, the Healing Cake will restore the HP of all allies. The healing amount will depend on the target. While Moon Rabbit Cookie is using her skill, she will be more resistant to interrupting effects.",
+            gameDescription = "Fresh rice harvested from the happy soils of the Cookie World was used for baking the happy Moon Rabbit Cookie. This Cookie's chubby cheeks are always filled with sweet rice cakes. And while some may think it's cute, her craving for more rice cakes might be one of the strongest forces of the Universe. That craving can even become so strong that she might turn into a giant Rice Cake Bunny, and—oh boy!—you'd better keep your distance because she is going to wreak SWEET HAVOC. A group of particularly brave Cookies once tried to keep the giant Rice Cake Bunny in check by grabbing each other's hands and building a circle around her. Ever since, the Cookies have kept a tradition of holding hands and going around in circles under the full moon",
+            quote = "Fummoon in the sky, and in ma tummy!",
+            cooldown = 14,
+            skillStats = "Single hit DMG: 127.9 % (+1.7% per level)\n" +
+                    "Self-healing: 160.0 % of ATK\n" +
+                    "Healing Rice Cake: heals all allies if the target is defeated within 10.0 sec\n" +
+                    "Healing: 253.0% of ATK (if Healing Cake's target is a Cookie)\n" +
+                    "Healing: 24.2% of ATK (if Healing Cake's target is not a Cookie)"
         ),
         CookieEntity(
             name = "Cocoa Cookie",
@@ -634,12 +655,14 @@ object DefaultCookieList {
             type = DEFENSE,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Cocoa Cookie jumps into a giant cocoa mug and happily spins around for a given time, attacking the enemies. At the same time, Cocoa Cookie restores the HP for all allied Cookies except for summoned creatures and makes them immune to stunning. While Cocoa Cookie is using her skill, she will briefly become resistant to interrupting effects. Cocoa Cookie's regular attack will heal 3 allies (targets Cookies first) with the lowest HP.",
+            skill = "Cocoa is Love",
+            gameDescription = "Even if her dough is 80% cocoa, she's always sipping hot cocoa, even during the summer time. Her marshmallow hat is so deliciously sweet, she needs to resist the temptation of taking a chunk out of it and dipping it into her cup. Her plump smooth cheeks just add to her charm! When she indulges in a freshly prepared cup of cocoa, all her worries melt away",
+            quote = "How about a cup of cocoa?",
+            cooldown = 15,
+            skillStats = "Single hit DMG: 41.7% (+0.57% per level)\n" +
+                    "Healing: 42.8% (+0.58% per level) of ATK\n" +
+                    "Stun Immunity: 8.0 sec"
         ),
         CookieEntity(
             name = "Wildberry Cookie",
@@ -652,12 +675,18 @@ object DefaultCookieList {
             type = DEFENSE,
             position = FRONT,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Wildberry Cookie unleashes his Battle Rage, dealing more powerful attacks and activating his Wild buff that cannot be dispelled. At the end of the Battle Rage mode, Wildberry Cookie musters all his strength, dealing an uppercut and a final blow. The Wild buff will stack with each hit Wildberry Cookie receives: the more stacks he has, the more powerful his final blow's DMG will be. While Wildberry Cookie is dealing an uppercut and his final blow, he will become resistant to interrupting effects. Being a large Cookie, Wildberry Cookie is less affected by Knockback or Flying.",
+            skill = "Wild Punch",
+            gameDescription = "Filled to the brim with wild tropical berries, Wildberry Cookie's ardent loyalty to the Hollyberry Kingdom is unquestionable. And the brightly gleaming jewel embedded into his mighty gauntlet is proof! Young Wildberry Cookie once roamed the ramshackle alleys of the Hollyberry capital until an unexpected savior offered him a helping hand. Insidious whispers have been following this knight of few words ever since: they claim he is prone to solving problems with brute force, but these rumors cannot be farther from the truth. Wildberry Cookie has sworn to do whatever it takes to protect his kingdom and its royal dynasty! Even though sometimes what it takes is serving generous amounts of berry juice!",
+            quote = "For the Hollyberry Kingdom!",
+            cooldown = 10,
+            skillStats = "Single Hit DMG: 423.5% + Stun 1.3 Sec\n" +
+                    "Extra DMG to Knockback-resisting enemies: +100.0%\n" +
+                    "Wild: +35.3% to final blow for every hit, up to 30 stacks\n" +
+                    "DMG Resist: +15.0% to all allies during Battle Rage\n" +
+                    "Uppercut DMG: 19.3% (+0.263% per level)\n" +
+                    "Final blow DMG: 141.6% (+1.93% per level) + Wild's extra DMG\n" +
+                    "Final blow stun: 2.3 sec"
         ),
         CookieEntity(
             name = "Licorice Cookie",
@@ -670,12 +699,14 @@ object DefaultCookieList {
             type = MAGIC,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Summons a powerful Black Lightning and Licorice Servants. The potent spell briefly increases the party's Defense. Licorice Servants are resistant to certain movement interrupting effects. If the skill is used before the summoned Licorice Servants disappear, new additional Licorice Servants will be summoned.",
+            skill = "Licorice Servants",
+            gameDescription = "With a great portion of the blackest licorice extract in his dough and a grim-looking scythe, this Cookie is up to no good. From a young age, Licorice Cookie dreamed of becoming a wizard but never received the recognition he so rightfully deserved. Eventually, he turned to the forbidden arts of Black Magic. With time, Licorice Cookie assembled a small army of Chewy Licorice Servants raised to do his bidding. On his dark path, he met Dark enchantress head.png Dark Enchantress Cookie. The might of the sorceress astonished Licorice Cookie, and it didn't take long before he swore his allegiance. Now, the Cookie is working flat out to earn his new mistress's favor. And it seems like Dark Enchantress Cookie is not easily pleased, as Licorice Cookie's diary filled with everyday rants and complaints could fill up a library.",
+            quote = "It's unwise to get in my way... Hehe!",
+            cooldown = 14,
+            skillStats = "Damage dealt: 239.0% (+3.3% DMG per level)\n" +
+                    "Summons Licorice Servants with 5% ATK, 150% DEF, and 50% HP\n" +
+                    "+20.0% DEF for 7.0 seconds"
         ),
         CookieEntity(
             name = "Snow Sugar Cookie",
@@ -688,12 +719,13 @@ object DefaultCookieList {
             type = MAGIC,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Waves the Snow Sugar Wand to summon the Snow King that causes a snowstorm, dealing area damage over time. Frozen enemies suffer from lowered Attack Speed. Snow King is resistant to certain action and movement interrupting effects. While Snow Sugar Cookie is using their skill, they will briefly become resistant to interrupting effects.",
+            skill = "Blizzard",
+            gameDescription = "Made of snow, sugar, ice, and an unknown secret ingredient, this Cookie was once very lonely, wandering through a vast snowy field. Then one day, Snow Sugar Cookie found a magic wand that could summon snow creatures and wouldn't melt even in the oven. The Cookie quickly learned to summon friends like the Sea Snow Cone and the Great Snow King and was never lonely again.",
+            quote = "Hi! Wanna have a snowball fight?",
+            cooldown = 20,
+            skillStats = "Snow King: 26.0% ATK (+0.35% ATK per level), 125.0% of DEF, 150.0% of HP\n" +
+                    "ATK SPD Reduction: -25% within the snowstorm range"
         ),
         CookieEntity(
             name = "Espresso Cookie",
@@ -706,12 +738,13 @@ object DefaultCookieList {
             type = MAGIC,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Precise and even grinding is key for magically delicious coffee! A giant whirlwind inflicts serial area damage to enemies and pulls them to its center. The final burst of damage interrupts skills.",
+            skill = "Grinding",
+            gameDescription = "Precise temperature, precise quantity of coffee beans, precise roasting time! Everything must be in a precise—impeccably precise—order for the plan to work. Always busy, always on the go—this is the lifestyle of Espresso Cookie. Despite being frequently mistaken for a black mage—yes, sometimes things burn, and smoke—Espresso Cookie can't afford to waste a second on meaningless explanations. Night after night, this pioneer of magic works on perfecting his grind and brew. \"Isn't that too much coffee?\" one might wonder. Well, at least there's always the delightful coffee fragrance in the air!",
+            quote = "Yes, I'm here. What now?",
+            cooldown = 15,
+            skillStats = "80.0% DMG over 7 hits (+0.9-1% DMG per level)\n" +
+                    "100.0% DMG with last hit (+1.23-1.25% DMG per level)"
         ),
         CookieEntity(
             name = "Latte Cookie",
@@ -724,12 +757,16 @@ object DefaultCookieList {
             type = MAGIC,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Conjures a Latte Glyph attracting enemies to its center, dealing damage and silencing them. The Glyph remains on the ground, dealing damage over time and greater damage to enemies in its center.",
+            skill = "Care for a Latte?",
+            gameDescription = "Coffee or milk... that is the question. Why not both? Latte Cookie's dough was formed with coffee most bitter and acrid, balanced with the creamiest and smoothest blend of milk. With her etched staff in hand, she gracefully draws beautifully patterned Latte Glyphs in the air while daydreaming. But watch out! By chance, one of these Glyphs could be a powerful sigil for a grand spell! During her years as a student, she spearheaded research on the development of Coffee Magic with a rather eccentric aficionado of coffee. Thanks to her efforts, Latte Cookie was granted a professorship at the Parfaedia Magic Institute. You'd think that a professor would be more punctual, especially with their own lectures. But not Latte Cookie! She's more invested in savoring a warm latte before class. Though far from achieving the Professor of the Year Reward, she knows a thing or two about inspiring her students. With her genuine compliments and encouraging smile, Latte Cookie is already the favorite professor of many.",
+            quote = "Something on your mind? I can lend you an ear!",
+            cooldown = 15 ,
+            skillStats = "Single hit DMG: 60.0%\n" +
+                    "Inner Latte Glyph DMG: 140.0% DMG total\n" +
+                    "Outer Latte Glyph DMG: 105.0% DMG total\n" +
+                    "Silenced: 1.0 sec\n" +
+                    "Immobilized: 5.0 sec"
         ),
         CookieEntity(
             name = "Mango Cookie",
@@ -742,12 +779,13 @@ object DefaultCookieList {
             type = MAGIC,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Sends forward a wave of tropical mango juice, inflicting damage to enemies. The fresh, sweet waves also increases the ATK of allies for a short time.",
+            skill = "Mango Juice Wave",
+            gameDescription = "The sun glistens above the serene palm trees of the Tropical Soda Archipelago. Once you arrive, Mango Cookie will give you a cheerful, hearty welcome making you feel right at home! With ripe mangoes mixed straight into the dough, Mango Cookie is pure-spirited and tenderhearted. Whether it's spending time along the emerald coasts or exploring the islands with his canoe, Mango Cookie makes sure to enjoy life to the fullest. When the sun reaches its peak, sometimes he'll hang up his hammock underneath the shade of the palm trees and take a relaxing nap. When Cookies visit the archipelago, Mango Cookie can't help becoming a hyper chatterbox. Mangoes will ripen by the time he runs out of stories to tell",
+            quote = "Any Cookie would fall in love with local views!",
+            cooldown = 15,
+            skillStats = "Single hit DMG: 57.0% (+0.8% DMG per level)\n" +
+                    "+10.0% ATK for 7.0 sec"
         ),
         CookieEntity(
             name = "Squid Ink Cookie",
@@ -760,12 +798,12 @@ object DefaultCookieList {
             type = MAGIC,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Where did Squid Ink Cookie go? And what is this giant squid doing here?! The monster is about to make anyone flat as a Cookie with a series of rapid slaps dealing area damage.",
+            skill = "Ink Tentacle Slap",
+            gameDescription = "Squid Ink Cookie came out of the oven not even a little bit crispy. Maybe that's because of all the viscous ink inside! The Cookie was found floating along the seashore, all weak and confused. There is a theory that this Cookie is the legendary treasure-eating sea monster that attacked treasure ships, hungry for more gold. But Squid Ink Cookie can't remember anything of that and spends all the time oozing blackish inky tears.",
+            quote = "Not me...",
+            cooldown = 16 ,
+            skillStats = "Single hit (7) DMG: 35.0% (+0.4-0.5% DMG per level)"
         ),
         CookieEntity(
             name = "Pumpkin Pie Cookie",
@@ -778,12 +816,15 @@ object DefaultCookieList {
             type = MAGIC,
             position = MIDDLE,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Pumpkin Pie Cookie's Pompon grows to a giant size, causing area damage. For a given period of time, Giant Pompon inflicts melee area damage up to 3 enemies and applies a non-stackable debuff, decreasing the amount of healing the enemies receive. While on the battlefield, Giant Pompon increases ATK SPD for all allied summoned creatures. Giant Pompon will be more resistant to interrupting effects while performing the first special attack. Also, Pumpkin Pie Cookie can use her decreased first cooldown to use the skill sooner. Pompon is resistant to certain interruption effects.",
+            skill = "Pompon, help!",
+            gameDescription = "It's Halloween, a time of spooky fun for all ghosts and Cookies. And amidst the Jack-o'-lanterns adorning the streets, stands Pumpkin Pie Cookie watching others dressed up in their costumes. Perhaps it's because she was made of a pumpkin that grew in the shade of an abandoned house, untouched by the sun, but she seems... distant, even though she has a smile on her face. One might try to escape this Cookie's uncanny presence, but there is something eerily captivating in the way she slowly bats her eyelashes... Pumpkin Pie Cookie's favorite things on Earthbread are her fluffy and poofy dress that resembles a pumpkin and the old, tattered doll she always carries around. This Cookie will hold your hand and drag you to play with her whenever there's an exciting festival. Surprisingly, no one has ever said no. You can only wonder if it's because of Pumpkin Pie Cookie's doll that looks almost alive or the giant wavering shadow behind her...",
+            quote = "We'll always be together, Pompon...",
+            cooldown = 18,
+            skillStats = "Summons Pompon with 44.4% ATK (+0.55-0.56% ATK per level), 188.0% DEF, and 382.3% HP\n" +
+                    "Healing received: -70.0 % for 3.0 sec\n" +
+                    "Pompon's Strike Attack DMG: 170.0%\n" +
+                    "ATK SPD: +45.0% while Pompon is active"
         ),
         CookieEntity(
             name = "Rye Cookie",
@@ -796,12 +837,13 @@ object DefaultCookieList {
             type = RANGED,
             position = REAR,
             rarity = EPIC,
-            skillDesc = "",
-            skill = "",
-            gameDescription = "",
-            quote = "",
-            cooldown = ,
-            skillStats = ""
+            skillDesc = "Shoot first if you don't wanna be shot! The Cookie aims both pistols at the enemy with the lowest max HP and shoots a round, dealing a great amount of damage several times. The Cookie's Attack Speed is increased greatly for the whole Showdown duration. (Skill cannot be applied to summoned foes.)",
+            skill = "Final Showdown",
+            gameDescription = "On the sunset of a hard day's work, the saloon door bangs open. \"As usual, boss!\" she yells. Yup, it's Rye Cookie again, so better get her order straight. She's a bounty hunter in these here parts, sporting a shiny badge and all that. The Wild Gun, they call'er. Maybe she's here on a job, or maybe she's just moseying through town. Last time, there been rumors of a brazen heist: someone wiped the wheat silo clean as a whistle, not a single grain left. Wonder who coulda down that? Anyway, better to be careful 'round that one. It's safer to be nice and quiet 'round her, lest ya wanna feel the full barrel from her wholegrain-caliber.",
+            quote = "I bite hard and never let go.",
+            cooldown = 15,
+            skillStats = "Damage dealt: 72.0% (+0.9-1% per level)\n" +
+                    "+50.0% ATK SPD for 7.0 sec"
         ),
         CookieEntity(
             name = "Tiger Lily Cookie",
